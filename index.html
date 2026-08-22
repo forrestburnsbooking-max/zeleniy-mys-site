@@ -64,6 +64,14 @@
   .isl--ours:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
   .isl--other{opacity:.34;pointer-events:none}
   .isl--other .isl__l{color:var(--faint);font-size:.58rem}
+  .map__hint{position:absolute;z-index:2;left:52%;top:39%;transform:translate(-50%,-50%);
+    display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:none;text-align:center}
+  .map__hint span{width:6px;height:6px;border-radius:50%;background:var(--gold);
+    opacity:.75;animation:mapPulse 2.4s ease-in-out infinite}
+  .map__hint b{font-size:.6rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--faint)}
+  @keyframes mapPulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(2.2);opacity:.12}}
+  @media(prefers-reduced-motion:reduce){.map__hint span{animation:none}}
   .locator{position:absolute;z-index:4;left:2.5%;bottom:3.5%;width:21%;min-width:150px;
     aspect-ratio:1/1;border:1px solid var(--line);background:rgba(9,20,31,.86);
     backdrop-filter:blur(3px)}
@@ -143,24 +151,12 @@
   </h1>
 </div>
 
-<div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:44px;
-  padding:38px 0 50px;align-items:end">
-  <p style="font-size:19px;line-height:1.5;color:var(--dim);max-width:44ch">
+<div class="wrap" style="padding:38px 0 50px">
+  <p style="font-size:19px;line-height:1.5;color:var(--dim);max-width:52ch">
     Помогаем переехать и легализоваться, собираем поездки на острова
     и ведём сделки с недвижимостью. Живём здесь сами — и работаем с тем,
     что знаем изнутри, а не по справочникам.
   </p>
-  <div style="display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap">
-    <a class="btn" href="#">Разбор ситуации</a>
-    <span class="mono" style="font-size:.7rem;color:var(--faint)">45 минут · бесплатно</span>
-  </div>
-</div>
-
-<div style="height:360px;overflow:hidden;position:relative">
-  <img src="img/HERO.jpg" alt="Понта-ду-Сол на Санту-Антане: городок на мысу, обрыв в Атлантику"
-    style="width:100%;height:100%;object-fit:cover;object-position:center 62%">
-  <div style="position:absolute;inset:0;
-    background:linear-gradient(to top,var(--black) 2%,rgba(11,11,12,.12) 55%,rgba(11,11,12,.5) 100%)"></div>
 </div>
 
 <!-- ================= КАРТА АРХИПЕЛАГА ================= -->
@@ -230,6 +226,10 @@
         <img src="img/MAP_brava.jpg" alt="Брава">
         <span class="isl__l">Брава</span>
       </span>
+      <div class="map__hint" aria-hidden="true">
+        <span></span>
+        <b class="mono">Нажмите на остров</b>
+      </div>
       <div class="locator" aria-hidden="true">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none">
           <path class="loc-land"
