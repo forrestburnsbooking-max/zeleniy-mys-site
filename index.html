@@ -23,6 +23,17 @@
   .tag{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.64rem;letter-spacing:.22em;
     text-transform:uppercase;color:var(--gold)}
   .tag--dim{color:var(--faint)}
+  /* Герой: пляж Боа-Вишты с медленным наездом, текст держится на градиенте */
+  .hero{position:relative;overflow:hidden;display:flex;align-items:flex-end;
+    min-height:min(76vh,720px)}
+  .hero__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transform-origin:58% 62%;animation:heroPan 30s ease-in-out infinite alternate}
+  @keyframes heroPan{from{transform:scale(1)}to{transform:scale(1.1)}}
+  @media(prefers-reduced-motion:reduce){.hero__ph{animation:none}}
+  .hero__veil{position:absolute;inset:0;background:
+    linear-gradient(to top,var(--black) 3%,rgba(11,11,12,.62) 38%,rgba(11,11,12,.25) 100%)}
+  .hero__body{position:relative;padding:70px 0 54px;display:flex;flex-direction:column;gap:28px}
+  .hero__body h1{text-shadow:0 2px 24px rgba(5,10,17,.75)}
   .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
   .band__grid{display:grid;grid-template-columns:86px 1.05fr 1fr 210px;gap:30px;
     padding:30px 0;align-items:center;position:relative}
@@ -161,18 +172,20 @@
 </div>
 
 <!-- ================= ГЕРОЙ ================= -->
-<div class="wrap" style="padding:64px 0 0">
-  <h1 class="huge" style="font-size:clamp(58px,9.4vw,128px)">
-    Десять<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
-  </h1>
-</div>
-
-<div class="wrap" style="padding:38px 0 50px">
-  <p style="font-size:19px;line-height:1.5;color:var(--dim);max-width:52ch">
-    Добро пожаловать в Капо Верде — островную демократию в Атлантическом
-    океане, когда-то бывшую частью Португалии. Это десять вулканических
-    островов в 570&nbsp;км от Африки, независимых с 1975 года.
-  </p>
+<div class="hero">
+  <img class="hero__ph" src="img/HERO_BEACH.jpg" alt="Пляж Боа-Вишты: белый песок и бирюзовая вода">
+  <div class="hero__veil"></div>
+  <div class="wrap hero__body">
+    <h1 class="huge" style="font-size:clamp(58px,9.4vw,128px)">
+      Десять<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
+    </h1>
+    <p style="font-size:19px;line-height:1.5;color:var(--ink);max-width:52ch;
+      text-shadow:0 1px 14px rgba(5,10,17,.9)">
+      Добро пожаловать в Капо Верде — островную демократию в Атлантическом
+      океане, когда-то бывшую частью Португалии. Это десять вулканических
+      островов в 570&nbsp;км от Африки, независимых с 1975 года.
+    </p>
+  </div>
 </div>
 
 <!-- ================= ЦИФРЫ ================= -->
@@ -498,7 +511,7 @@
   </a>
 
   <a class="band" href="boa-vista.html">
-    <img class="band__ph" src="img/ISL_BOAVISTA.jpg" alt="">
+    <img class="band__ph" src="img/HERO_BEACH.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid" style="position:relative">
       <span class="band__num" style="color:rgba(242,239,231,.3)">05</span>
@@ -870,7 +883,8 @@
     </p>
   </div>
   <p class="mono" style="font-size:.62rem;color:var(--faint);line-height:1.9;border-top:1px solid var(--line);padding-top:22px">
-    Фотографии — Wikimedia Commons. Понта-ду-Сол © CorreiaPM, общественное достояние ·
+    Фотографии — Wikimedia Commons. Пляж Боа-Вишты © Miguel Discart &amp; Kiri Karma, CC BY-SA 2.0 ·
+    Понта-ду-Сол © CorreiaPM, общественное достояние ·
     Прая © David Traver, общественное достояние · Минделу © Pedro Silva, CC BY 2.0 ·
     Санта-Мария © Martikkk, CC BY-SA 3.0 · Боа-Вишта © SimonWaldherr, CC BY-SA 4.0 ·
     Фогу © Aldo Bien, CC BY-SA 3.0 · долина и террасы Санту-Антана © Herbert wie, CC BY-SA 4.0 ·
