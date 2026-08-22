@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сал — Зелёный Мыс</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--black:#0B0B0C;--panel:#111113;--ink:#F2EFE7;--dim:#8B8880;--faint:#5C5A55;
+    --gold:#E8B44A;--line:rgba(242,239,231,.16);--line2:rgba(242,239,231,.3)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--black);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",system-ui,sans-serif;
+    font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}a:hover{color:#F5CE7A}
+  p{margin:0}h1,h2,h3{margin:0}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+  .wrap{width:min(100% - 4.5rem,1140px);margin-inline:auto}
+  .huge{font-weight:800;letter-spacing:-.045em;line-height:.86;text-transform:uppercase}
+  .tag{font-family:ui-monospace,Menlo,monospace;font-size:.63rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold)}
+  .tag--dim{color:var(--faint)}
+  .spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  .spec > div{background:var(--black);padding:20px 18px;display:flex;flex-direction:column;gap:6px}
+  .spec dt{font-family:ui-monospace,Menlo,monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin:0}
+  .spec dd{margin:0;font-size:18px;font-weight:600}
+  .bar{display:grid;grid-template-columns:120px 1fr 76px;gap:14px;align-items:center;
+    padding:7px 0;font-size:14px}
+  .bar__t{height:7px;background:var(--line);position:relative;overflow:hidden}
+  .bar__f{position:absolute;inset:0 auto 0 0;background:var(--line2)}
+  .bar--me .bar__f{background:var(--gold)}
+  .bar--me{color:var(--ink)}
+  .bar:not(.bar--me){color:var(--faint)}
+  .has{display:grid;grid-template-columns:1fr;gap:0}
+  .has > div{display:flex;justify-content:space-between;gap:16px;align-items:center;
+    padding:13px 0;border-top:1px solid var(--line);font-size:15px}
+  .has > div:last-child{border-bottom:1px solid var(--line)}
+  .yes{color:var(--gold);font-family:ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.12em}
+  .no{color:var(--faint);font-family:ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.12em}
+  .btn{display:inline-block;background:var(--gold);color:var(--black);padding:16px 32px;
+    font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+  .btn:hover{background:#F5CE7A;color:var(--black)}
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:760px){.gal{grid-template-columns:repeat(3,1fr)}}
+  .gal figure{position:relative;overflow:hidden;aspect-ratio:4/3;margin:0}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .35s ease;filter:saturate(.95)}
+  .gal figure:hover img{transform:scale(1.05);filter:saturate(1.1)}
+  .salt{border:1px solid var(--gold);border-left-width:3px;background:
+    linear-gradient(180deg,rgba(232,180,74,.06) 0%,transparent 55%)}
+  .salt__h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    flex-wrap:wrap;padding:22px 26px 0}
+  .salt__tier{font-family:ui-monospace,Menlo,monospace;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--black);background:var(--gold);padding:4px 10px}
+  .salt__tier--soft{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+  .salt__b{display:grid;grid-template-columns:1fr;gap:26px;padding:16px 26px 24px}
+  @media(min-width:860px){.salt__b{grid-template-columns:1.25fr .75fr}}
+  .salt__b p{color:var(--dim);font-size:15px;line-height:1.6}
+  .salt dl{margin:0;display:flex;flex-direction:column;gap:8px}
+  .salt dl > div{display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+    border-bottom:1px solid var(--line);padding-bottom:7px}
+  .salt dt{margin:0;font-size:13.5px;color:var(--faint)}
+  .salt dd{margin:0;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;
+    color:var(--ink);text-align:right}
+  .salt__who{padding:14px 26px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+  .salt__cta{display:flex;justify-content:space-between;align-items:center;gap:18px;
+    flex-wrap:wrap;padding:18px 26px;border-top:1px solid var(--line);
+    background:rgba(232,180,74,.07)}
+  .salt__scale{display:flex;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+  .salt__scale > span{flex:1;background:var(--black);padding:11px 8px;display:flex;
+    flex-direction:column;gap:5px;align-items:center;text-align:center}
+  .salt__scale b{font-family:ui-monospace,Menlo,monospace;font-size:.6rem;font-weight:400;
+    letter-spacing:.08em;color:var(--faint);line-height:1.2}
+  .salt__scale i{display:block;width:100%;height:4px;background:var(--line);font-style:normal}
+  .salt__scale > span i{background:rgba(232,180,74,.45)}
+  .salt__scale .me{background:var(--panel)}
+  .salt__scale .me i{background:var(--gold);height:5px}
+  .salt__scale .me b{color:var(--ink)}
+  .proj{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  @media(min-width:820px){.proj{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
+  .proj > article{background:var(--black);padding:26px 24px;display:flex;
+    flex-direction:column;gap:11px}
+  .proj h4{margin:0;font-weight:800;letter-spacing:-.025em;font-size:22px;
+    text-transform:uppercase;line-height:.95}
+  .proj p{color:var(--dim);font-size:14.5px;line-height:1.55}
+  .kind{font-family:ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold)}
+  .hypo{border:1px solid var(--line);border-left:2px solid var(--gold);
+    padding:18px 22px;display:flex;flex-direction:column;gap:7px}
+  figure{margin:0;display:flex;flex-direction:column;gap:8px}
+  figcaption{font-family:ui-monospace,Menlo,monospace;font-size:.64rem;color:var(--faint)}
+</style>
+</head>
+<body>
+<!-- ШАПКА -->
+<div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;
+  padding:30px 0 26px;border-bottom:1px solid var(--line)">
+  <p class="tag" style="color:var(--ink);letter-spacing:.24em">Зелёный&nbsp;Мыс</p>
+  <p class="tag tag--dim">16°45′ с.ш. 22°55′ з.д.</p>
+</div>
+
+<!-- ГЕРОЙ: остров с орбиты -->
+<div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;
+  padding:56px 0 60px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <p class="tag">ТУРИЗМ · КАПИТАЛ · 43 РЕЙСА</p>
+    <h1 class="huge" style="font-size:clamp(46px,7vw,84px)">Сал</h1>
+    <p style="font-size:19px;line-height:1.5;color:var(--dim)">Главные ворота страны</p>
+    <div style="display:flex;gap:14px;align-items:center;padding-top:8px;flex-wrap:wrap">
+      <a class="btn" href="#">Обсудить этот остров</a>
+      <span class="mono" style="font-size:.68rem;color:var(--faint)">живём здесь · отвечаем сами</span>
+    </div>
+  </div>
+  <figure>
+    <img src="img/SAT_sal.jpg" alt="Сал со спутника"
+      style="width:100%;display:block">
+    <figcaption>Снимок Sentinel-2 · Copernicus / EOX, CC BY-SA 4.0</figcaption>
+  </figure>
+</div>
+
+<!-- СПЕЦИФИКАЦИЯ -->
+<div class="wrap">
+  <dl class="spec" style="margin:0">
+    <div><dt>Площадь</dt><dd class="mono">220 км²</dd></div>
+    <div><dt>Население</dt><dd class="mono">33 347</dd></div>
+    <div><dt>Высшая точка</dt><dd class="mono">406 м</dd></div>
+    <div><dt>Цена метра</dt><dd class="mono" style="font-size:16px">€1 000–3 000 / м² <span class="mono" style="font-size:.6rem;color:var(--faint)">оценка</span></dd></div>
+    <div><dt>Как добраться</dt><dd style="font-size:15px;font-weight:500">Аэропорт Амилкар Кабрал — 43 направления</dd></div>
+  </dl>
+  <p class="mono" style="font-size:.66rem;color:var(--faint);padding-top:12px;line-height:1.7">
+    Самый ликвидный рынок недвижимости в стране; порт Палмейра — в той же европейской программе
+  </p>
+</div>
+
+<!-- ПРОФИЛЬ -->
+<div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;padding:70px 0 0">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <p class="tag">Что это за место</p>
+    <p style="color:var(--dim);font-size:16px;line-height:1.62">Плоский, сухой, песчаный — географически самый скучный остров архипелага и при этом главный. Через аэропорт Амилкар Кабрал проходит основной поток в страну: 43 направления, прямые рейсы из Европы.</p>
+        <p style="color:var(--dim);font-size:16px;line-height:1.62">Санта-Мария на южной оконечности — курортная столица: отели, кайт-сёрфинг, дайвинг, самая развитая туристическая инфраструктура. Сюда же идёт основной иностранный капитал в недвижимость, и рынок здесь самый живой и самый дорогой.</p>
+        <p style="color:var(--dim);font-size:16px;line-height:1.62">Если задача — сдавать в аренду и иметь ликвидный объект, экономика Сала понятнее всех остальных островов. Если задача — жить в зелени, это не сюда.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:34px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="tag tag--dim">Высшая точка среди шести</p>
+      <div class="bar"><span>Фогу</span><span class="bar__t"><span class="bar__f" style="width:100.0%"></span></span><span class="mono" style="text-align:right">2 829 м</span></div>
+      <div class="bar"><span>Санту-Антан</span><span class="bar__t"><span class="bar__f" style="width:70.0%"></span></span><span class="mono" style="text-align:right">1 979 м</span></div>
+      <div class="bar"><span>Сантьягу</span><span class="bar__t"><span class="bar__f" style="width:49.2%"></span></span><span class="mono" style="text-align:right">1 392 м</span></div>
+      <div class="bar"><span>Сан-Висенти</span><span class="bar__t"><span class="bar__f" style="width:26.3%"></span></span><span class="mono" style="text-align:right">744 м</span></div>
+      <div class="bar bar--me"><span>Сал</span><span class="bar__t"><span class="bar__f" style="width:14.4%"></span></span><span class="mono" style="text-align:right">406 м</span></div>
+      <div class="bar"><span>Боа-Вишта</span><span class="bar__t"><span class="bar__f" style="width:13.7%"></span></span><span class="mono" style="text-align:right">387 м</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="tag tag--dim">Что есть на острове</p>
+      <div class="has">
+      <div><span>Международный аэропорт</span><span class="yes">ЕСТЬ</span></div>
+      <div><span>Паромное сообщение</span><span class="yes">ЕСТЬ</span></div>
+      <div><span>Центральный госпиталь</span><span class="no">НЕТ</span></div>
+      <div><span>Международная школа</span><span class="no">НЕТ</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ИНВЕСТПРОЕКТЫ -->
+<div class="wrap" style="padding:70px 0 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:20px;flex-wrap:wrap;gap:12px">
+    <p class="tag">Наши инвестиционные проекты</p>
+    <p class="mono" style="font-size:.62rem;color:var(--faint)">на Сал</p>
+  </div>
+  <div class="salt">
+    <div class="salt__h">
+      <span class="salt__tier">Флагман · работает на всех шести островах</span>
+    </div>
+    <div class="salt__b">
+      <div style="display:flex;flex-direction:column;gap:13px">
+        <h3 class="huge" style="font-size:28px;letter-spacing:-.028em">Зелень там, где её не ждут</h3>
+        <p style="color:var(--ink);font-size:16px;line-height:1.5">Остров живёт на опреснённой воде, и каждая посадка на нём — борьба с солью.</p>
+        <p>Полей здесь нет, а газоны, аллеи и поля для гольфа есть, и они гибнут по той же причине, что и урожай на других островах. Наш клиент тут не фермер, а отель и управляющая компания: им нужна территория, которая выглядит дорого круглый год, а не выгорает за два сезона.</p>
+      </div>
+      <dl>
+          <div><dt>Кому</dt><dd>отелям и управляющим компаниям</dd></div>
+          <div><dt>Что даёт</dt><dd>территория, которая держится</dd></div>
+          <div><dt>Рынок</dt><dd>самый плотный турпоток страны</dd></div>
+          <div><dt>Вход</dt><dd>[УТОЧНИТЬ]</dd></div>
+      </dl>
+    </div>
+    <div class="salt__cta">
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:15.5px;color:var(--ink);font-weight:600">Разбор вашего участка</span>
+        <span style="font-size:13.5px;color:var(--dim)">Замер воды и почвы, расчёт программы, смета на сезон</span>
+      </div>
+      <a class="btn" href="#" style="padding:14px 26px;font-size:.74rem">Заказать замер</a>
+    </div>
+    <div class="salt__scale">
+        <span class=""><i></i><b>Санту-Антан</b></span>
+        <span class=""><i></i><b>Сантьягу</b></span>
+        <span class=""><i></i><b>Сан-Висенти</b></span>
+        <span class="me"><i></i><b>Сал</b></span>
+        <span class=""><i></i><b>Боа-Вишта</b></span>
+        <span class=""><i></i><b>Фогу</b></span>
+    </div>
+  </div>
+  <p class="mono" style="font-size:.62rem;color:var(--faint);padding-top:10px;line-height:1.7">
+    Программа работает на всех шести островах — меняется только то, чья земля:
+    на аграрных это поле фермера, на курортных территория отеля.
+  </p>
+</div>
+
+<!-- ВОЗМОЖНОСТИ -->
+<div class="wrap" style="padding:70px 0 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:8px;flex-wrap:wrap;gap:12px">
+    <p class="tag">Что ещё мы здесь рассматриваем</p>
+    <p class="mono" style="font-size:.62rem;color:var(--faint)">гипотезы, не предложения</p>
+  </div>
+  <div class="hypo" style="margin-bottom:22px">
+    <p style="color:var(--dim);font-size:14.5px;line-height:1.55">
+      Ниже — направления, которые логично вытекают из того, что на острове есть:
+      из его экономики, географии и того, куда идут государственные и европейские деньги.
+      Это <b style="color:var(--ink)">не готовые проекты и не сбор инвестиций</b>,
+      а материал для разговора. Считать под конкретную задачу.
+    </p>
+  </div>
+  <div class="proj">
+      <article><span class="kind">недвижимость</span><h4>Туристическая аренда</h4><p>Самый ликвидный рынок страны: главные ворота, 43 направления, круглогодичный поток. Понятная экономика входа и выхода — если задача вложить и сдавать, начинать логично отсюда.</p></article>
+      <article><span class="kind">логистика</span><h4>Порту-да-Палмейра</h4><p>В той же европейской программе: модернизация под приём крупных судов и разгрузку рыбы. Снабжение, хранение, холод.</p></article>
+      <article><span class="kind">энергетика</span><h4>Солнечная генерация</h4><p>Цель страны — половина электричества из возобновляемых к 2030 году, нужно больше 150 МВт новой солнечной мощности. Плоский пустой остров с инсоляцией 6–8 кВт·ч на м² в сутки.</p></article>
+  </div>
+</div>
+
+<!-- ГАЛЕРЕЯ -->
+<div class="wrap" style="padding:70px 0 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:18px;flex-wrap:wrap;gap:12px">
+    <p class="tag">Остров вблизи</p>
+    <p class="mono" style="font-size:.62rem;color:var(--faint)">шесть кадров</p>
+  </div>
+  <div class="gal">
+        <figure><img src="img/G_sal_0.jpg" alt="Сал, кадр 1" loading="lazy"></figure>
+        <figure><img src="img/G_sal_1.jpg" alt="Сал, кадр 2" loading="lazy"></figure>
+        <figure><img src="img/G_sal_2.jpg" alt="Сал, кадр 3" loading="lazy"></figure>
+        <figure><img src="img/G_sal_3.jpg" alt="Сал, кадр 4" loading="lazy"></figure>
+        <figure><img src="img/G_sal_4.jpg" alt="Сал, кадр 5" loading="lazy"></figure>
+        <figure><img src="img/G_sal_5.jpg" alt="Сал, кадр 6" loading="lazy"></figure>
+  </div>
+  <p class="mono" style="font-size:.56rem;color:var(--faint);padding-top:12px;line-height:1.8">
+    Sea point, Santa Maria, Sal Island, Cabo Verde © r_dfawn, CC BY-SA 4.0 · Santa Maria Sal Cabo Verde3 © Adrião, CC BY 3.0 · 20240104 151630 beach near Santa Maria, Sal, Cabo Verde © Tbo47, CC0 · 20240104 152238 beach near Santa Maria, Sal, Cabo Verde © Tbo47, CC0 · 20240101 123825 beach near Santa Maria, Sal, Cabo Verde © Tbo47, CC0 · 2014 Cape Verde. Sal. Saltkratern (2) © Daniel Åhs Karlsson, CC BY-SA 3.0
+  </p>
+</div>
+
+<!-- ФИНАЛ -->
+<div class="wrap" style="padding:70px 0 64px;margin-top:56px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap">
+  <h2 class="huge" style="font-size:clamp(24px,3.4vw,38px)">Подходит ли<br>вам этот остров</h2>
+  <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <a class="btn" href="#">Разобрать ситуацию</a>
+    <a class="btn" href="#" style="background:transparent;color:var(--ink);
+      border:1px solid var(--line2)">Все острова</a>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+  });
+</script>
+</body>
+</html>

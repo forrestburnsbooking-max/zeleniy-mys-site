@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Зелёный Мыс — Кабо-Верде</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+    --black:#0B0B0C;--panel:#111113;--ink:#F2EFE7;--dim:#8B8880;--faint:#5C5A55;
+    --gold:#E8B44A;--line:rgba(242,239,231,.16);--line-2:rgba(242,239,231,.28);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--black);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",system-ui,sans-serif;
+    font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}a:hover{color:#F5CE7A}
+  p{margin:0}
+  h1,h2,h3{margin:0}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  .wrap{width:min(100% - 5rem,1180px);margin-inline:auto}
+  .huge{font-weight:800;letter-spacing:-.045em;line-height:.86;text-transform:uppercase}
+  .tag{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.64rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--gold)}
+  .tag--dim{color:var(--faint)}
+  .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
+  .band__grid{display:grid;grid-template-columns:86px 1.05fr 1fr 210px;gap:30px;
+    padding:30px 0;align-items:center;position:relative}
+  .band__num{font-size:60px;color:rgba(242,239,231,.16);font-weight:800;letter-spacing:-.045em;line-height:1}
+  .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+  .band__veil{position:absolute;inset:0;
+    background:linear-gradient(90deg,var(--black) 24%,rgba(11,11,12,.55) 100%)}
+  .btn{display:inline-block;background:var(--gold);color:var(--black);
+    padding:17px 34px;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+  .btn:hover{background:#F5CE7A;color:var(--black)}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn--ghost:hover{background:rgba(242,239,231,.06);color:var(--ink)}
+
+
+
+
+
+  .map{position:relative;width:100%;aspect-ratio:316/304;
+    background:#0F2233;border:1px solid var(--line);overflow:hidden}
+  .map::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+    background:radial-gradient(125% 105% at 50% 40%,transparent 42%,rgba(5,10,17,.62) 100%)}
+  .isl{position:absolute;z-index:1;transform:translate(-50%,-50%);display:block;text-decoration:none}
+  .isl img{width:100%;display:block}
+  .isl__l{position:absolute;left:50%;top:100%;transform:translateX(-50%);
+    margin-top:5px;white-space:nowrap;
+    font-family:ui-monospace,Menlo,monospace;font-size:.63rem;letter-spacing:.13em;
+    text-transform:uppercase}
+  .isl--ours .isl__l{color:var(--ink)}
+  .isl--ours img{transition:filter .25s ease,transform .25s ease}
+  .isl--ours:hover img{filter:brightness(1.35);transform:scale(1.07)}
+  .isl--ours:hover .isl__l{color:var(--gold)}
+  .isl--ours:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+  .isl--other{opacity:.34;pointer-events:none}
+  .isl--other .isl__l{color:var(--faint);font-size:.58rem}
+  .locator{position:absolute;z-index:4;left:2.5%;bottom:3.5%;width:21%;min-width:150px;
+    aspect-ratio:1/1;border:1px solid var(--line);background:rgba(9,20,31,.86);
+    backdrop-filter:blur(3px)}
+  .locator svg{position:absolute;inset:0;width:100%;height:100%}
+  .loc-land{fill:rgba(242,239,231,.11);stroke:rgba(242,239,231,.26);stroke-width:.5}
+  .loc-link{stroke:rgba(242,239,231,.34);stroke-width:.45;stroke-dasharray:2 2}
+  .loc-cape{fill:var(--faint)}
+  .loc-halo{fill:none;stroke:var(--gold);stroke-width:.6;opacity:.5}
+  .loc-i{fill:var(--gold)}
+  .loc-o{fill:var(--faint)}
+  .loc-t{position:absolute;font-family:ui-monospace,Menlo,monospace;
+    font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+  .loc-t--africa{right:5%;top:6%;color:var(--dim)}
+  .loc-t--cape{right:5%;bottom:41%;color:var(--faint);font-size:.46rem;letter-spacing:.1em}
+  .loc-t--isl{left:4%;top:26%;color:var(--gold);font-size:.46rem;letter-spacing:.1em}
+  .loc-t--dist{left:30%;top:40%;color:var(--faint);font-size:.46rem}
+  @media(max-width:720px){.locator{display:none}}
+  @media (max-width:720px){ .isl__l{font-size:.5rem;letter-spacing:.08em} }
+  .paths{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  @media(min-width:900px){.paths{grid-template-columns:repeat(2,1fr)}}
+  .paths > article{background:var(--black);padding:30px 28px;display:flex;
+    flex-direction:column;gap:13px}
+  .paths h3{font-weight:800;letter-spacing:-.03em;font-size:26px;text-transform:uppercase;line-height:.94}
+  .paths > article > p{color:var(--dim);font-size:14.5px;line-height:1.55}
+  .paths dl{margin:0;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:7px}
+  .paths dl > div{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .paths dt{margin:0;font-family:ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .paths dd{margin:0;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;
+    color:var(--ink);text-align:right}
+  .paths .warn{font-size:13.5px;color:var(--faint);line-height:1.5;font-style:italic}
+  details{border-top:1px solid var(--line)}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;padding:20px 0;display:flex;justify-content:space-between;
+    gap:20px;font-size:18px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:ui-monospace,Menlo,monospace;color:var(--gold);font-size:1.2rem}
+  details[open] summary::after{content:"\2212"}
+  .ans{padding-bottom:22px;color:var(--dim);max-width:66ch;display:flex;flex-direction:column;gap:12px}
+  .ans b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<!-- ================= ШАПКА ================= -->
+<div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;
+  padding:34px 0 30px;border-bottom:1px solid var(--line)">
+  <p class="tag" style="color:var(--ink);font-size:.74rem;letter-spacing:.26em">Зелёный&nbsp;Мыс</p>
+  <p class="tag tag--dim">Cabo Verde · 16°N 24°W</p>
+</div>
+
+<!-- ================= ГЕРОЙ ================= -->
+<div class="wrap" style="padding:64px 0 0">
+  <h1 class="huge" style="font-size:clamp(58px,9.4vw,128px)">
+    Шесть<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
+  </h1>
+</div>
+
+<div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:44px;
+  padding:38px 0 50px;align-items:end">
+  <p style="font-size:19px;line-height:1.5;color:var(--dim);max-width:44ch">
+    Помогаем переехать и легализоваться, собираем поездки на острова
+    и ведём сделки с недвижимостью. Живём здесь сами — и работаем с тем,
+    что знаем изнутри, а не по справочникам.
+  </p>
+  <div style="display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap">
+    <a class="btn" href="#">Разбор ситуации</a>
+    <span class="mono" style="font-size:.7rem;color:var(--faint)">45 минут · бесплатно</span>
+  </div>
+</div>
+
+<div style="height:360px;overflow:hidden;position:relative">
+  <img src="img/HERO.jpg" alt="Понта-ду-Сол на Санту-Антане: городок на мысу, обрыв в Атлантику"
+    style="width:100%;height:100%;object-fit:cover;object-position:center 62%">
+  <div style="position:absolute;inset:0;
+    background:linear-gradient(to top,var(--black) 2%,rgba(11,11,12,.12) 55%,rgba(11,11,12,.5) 100%)"></div>
+</div>
+
+<!-- ================= ТРИ НАПРАВЛЕНИЯ ================= -->
+<div style="padding:78px 0 0">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:30px">
+    <p class="tag">Чем занимаемся</p>
+    <p class="mono" style="font-size:.66rem;color:var(--faint)">три направления</p>
+  </div>
+
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)">
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Жизнь</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Переезд<br>и статус</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Разбираем, какое основание подходит именно вам, и ведём до карты резидента:
+        фирма, недвижимость, контракт, семья. Дальше — банк, жильё, школа, врач,
+        подрядчики. Не консультация по переписке, а работа на месте.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">пять оснований · сопровождение под ключ</p>
+    </article>
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Поездки</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Приехать<br>и посмотреть</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Разведочная неделя для тех, кто присматривается к переезду: подбираем остров
+        под задачу, встречаем, возим, показываем объекты и знакомим с людьми.
+        Отдельно — маршруты по островам для тех, кто едет просто смотреть.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">разведка · маршруты · сопровождение</p>
+    </article>
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Инвестиции</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Купить<br>и вложить</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Подбор и проверка объекта, сопровождение сделки, оформление на месте.
+        Покупка от порога даёт сразу ПМЖ — «зелёную карту» вместе с ключами, без обязательства жить в стране.
+        Отдельно ведём собственные проекты на островах.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">недвижимость · сделки · проекты</p>
+    </article>
+  </div>
+</div>
+
+<!-- ================= ТРИПТИХ ================= -->
+<div class="wrap" style="padding:70px 0 0">
+  <div style="display:grid;grid-template-columns:1fr;gap:12px">
+    <div style="display:grid;grid-template-columns:1fr;gap:12px">
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:1500/640">
+        <img src="img/W_OCEAN.jpg" alt="Бирюзовая бухта Боа-Вишты" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:20px;bottom:16px;font-size:.62rem;
+          letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:6px 12px">Боа-Вишта · океан</figcaption>
+      </figure>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_LIFE.jpg" alt="Бухта на Сантьягу с пальмами" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Сантьягу</figcaption>
+      </figure>
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_TOWN.jpg" alt="Минделу с высоты" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Минделу</figcaption>
+      </figure>
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_SUN.jpg" alt="Бирюзовая вода у Сала" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Сал</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ТЕЗИС ================= -->
+<div style="position:relative;overflow:hidden;border-bottom:1px solid var(--line)">
+  <img src="img/LIVE.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2">
+  <div style="position:absolute;inset:0;background:linear-gradient(105deg,var(--black) 38%,rgba(11,11,12,.4) 100%)"></div>
+  <div class="wrap" style="position:relative;padding:86px 0;display:grid;
+    grid-template-columns:1.1fr .9fr;gap:52px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <p class="tag">Африканские Канары</p>
+      <h2 class="huge" style="font-size:clamp(34px,5vw,62px)">
+        Те же широты.<br>Другая цена.<br>Никакой очереди.
+      </h2>
+    </div>
+    <p style="font-size:18px;line-height:1.6;color:var(--dim)">
+      Вечная весна, Атлантика и вулканы — те же, что на Канарах, и та же широта.
+      Только здесь десять островов вместо семи, побережье не застроено,
+      а вход в вид на жительство дешевле. Мы не продаём место —
+      помогаем выбрать своё и проводим через всё, что дальше.
+    </p>
+  </div>
+</div>
+
+<!-- ================= КАРТА АРХИПЕЛАГА ================= -->
+<div style="padding:78px 0 0">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding-bottom:30px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Архипелаг</p>
+      <h2 class="huge" style="font-size:clamp(30px,4.4vw,54px)">Десять островов.<br>Шесть, где мы&nbsp;работаем.</h2>
+    </div>
+    <p style="color:var(--dim);font-size:17px;line-height:1.6">
+      Расположение и размеры настоящие — это снимки со спутника, разложенные
+      по координатам. Нажмите на остров, чтобы открыть его страницу: профиль,
+      цены, высоты, что есть и чего нет.
+    </p>
+  </div>
+
+  <div class="wrap">
+    <div class="map">
+      <a class="isl isl--ours" href="santo-antao.html"
+         style="left:10.5%;top:9.1%;width:14.0%">
+        <img src="img/MAP_santoantao.jpg" alt="Санту-Антан со спутника">
+        <span class="isl__l">Санту-Антан</span>
+      </a>
+      <a class="isl isl--ours" href="sao-vicente.html"
+         style="left:16.9%;top:17.2%;width:7.9%">
+        <img src="img/MAP_saovicente.jpg" alt="Сан-Висенти со спутника">
+        <span class="isl__l">Сан-Висенти</span>
+      </a>
+      <span class="isl isl--other"
+         style="left:24.7%;top:20.1%;width:4.1%">
+        <img src="img/MAP_santaluzia.jpg" alt="Санта-Лузия">
+        <span class="isl__l">Санта-Лузия</span>
+      </span>
+      <span class="isl isl--other"
+         style="left:40.5%;top:26.3%;width:14.6%">
+        <img src="img/MAP_saonicolau.jpg" alt="Сан-Николау">
+        <span class="isl__l">Сан-Николау</span>
+      </span>
+      <a class="isl isl--ours" href="sal.html"
+         style="left:86.1%;top:21.5%;width:3.9%">
+        <img src="img/MAP_sal.jpg" alt="Сал со спутника">
+        <span class="isl__l">Сал</span>
+      </a>
+      <a class="isl isl--ours" href="boa-vista.html"
+         style="left:89.5%;top:44.5%;width:9.5%">
+        <img src="img/MAP_boavista.jpg" alt="Боа-Вишта со спутника">
+        <span class="isl__l">Боа-Вишта</span>
+      </a>
+      <span class="isl isl--other"
+         style="left:78.0%;top:77.4%;width:5.4%">
+        <img src="img/MAP_maio.jpg" alt="Майу">
+        <span class="isl__l">Майу</span>
+      </span>
+      <a class="isl isl--ours" href="santiago.html"
+         style="left:62.5%;top:82.8%;width:9.5%">
+        <img src="img/MAP_santiago.jpg" alt="Сантьягу со спутника">
+        <span class="isl__l">Сантьягу</span>
+      </a>
+      <a class="isl isl--ours" href="fogo.html"
+         style="left:38.2%;top:87.6%;width:8.6%">
+        <img src="img/MAP_fogo.jpg" alt="Фогу со спутника">
+        <span class="isl__l">Фогу</span>
+      </a>
+      <span class="isl isl--other"
+         style="left:25.7%;top:90.1%;width:3.4%">
+        <img src="img/MAP_brava.jpg" alt="Брава">
+        <span class="isl__l">Брава</span>
+      </span>
+      <div class="locator" aria-hidden="true">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path class="loc-land"
+            d="M 72.7 3.3 L 66.7 14 L 71.3 23.3 L 73.5 32.7 L 70 43.3 L 70 46.5 L 66.7 51.3
+               L 63.2 55.1 L 66 57.3 L 69.5 63.7 L 68.7 70 L 76 74.3 L 82 80.7 L 88.7 90
+               L 91.3 96.7 L 100 96.7 L 100 3.3 Z"/>
+          <ellipse class="loc-halo" cx="20.5" cy="46.8" rx="12.5" ry="10.5"/>
+          <line class="loc-link" x1="29" y1="47" x2="61" y2="54.4"/>
+          <circle class="loc-cape" cx="63.2" cy="55.1" r="1.9"/>
+          <circle class="loc-i" cx="12.2" cy="39.5" r="1.5"/>
+          <circle class="loc-i" cx="13.5" cy="41" r="1.5"/>
+          <circle class="loc-o" cx="15" cy="41.5" r="1.1"/>
+          <circle class="loc-o" cx="18.1" cy="42.7" r="1.1"/>
+          <circle class="loc-i" cx="27.1" cy="41.8" r="1.5"/>
+          <circle class="loc-i" cx="27.8" cy="46" r="1.5"/>
+          <circle class="loc-o" cx="25.5" cy="52" r="1.1"/>
+          <circle class="loc-i" cx="22.5" cy="53" r="1.5"/>
+          <circle class="loc-i" cx="17.7" cy="53.9" r="1.5"/>
+          <circle class="loc-o" cx="15.2" cy="54.3" r="1.1"/>
+        </svg>
+        <span class="loc-t loc-t--africa">Африка</span>
+        <span class="loc-t loc-t--cape">Дакар</span>
+        <span class="loc-t loc-t--isl">Кабо-Верде</span>
+        <span class="loc-t loc-t--dist">570 км</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:14px">
+      <p class="mono" style="font-size:.64rem;color:var(--faint)">
+        Снимки Sentinel-2 · Copernicus / EOX, CC BY-SA 4.0
+      </p>
+      <p class="mono" style="font-size:.64rem;color:var(--faint)">
+        Приглушённые — острова, куда мы пока не возим
+      </p>
+    </div>
+    <p style="color:var(--faint);font-size:13.5px;line-height:1.6;padding-top:10px;max-width:74ch">
+      Острова лежат в 570 километрах западнее африканского берега. Имя они получили
+      от мыса Зелёный у Дакара — самой западной точки материка: португальцы, шедшие
+      вдоль побережья, назвали архипелаг по последнему ориентиру на большой земле.
+      Мыс остался в Сенегале, имя ушло в океан.
+    </p>
+  </div>
+</div>
+
+<!-- ================= ОСТРОВА ================= -->
+<div style="padding:74px 0 0">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:26px">
+    <p class="tag">Острова</p>
+    <p class="mono" style="font-size:.66rem;color:var(--faint)">цена метра · как добраться</p>
+  </div>
+
+  <div class="band">
+    <div class="wrap band__grid">
+      <span class="band__num">01</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Санту-Антан</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ГОРЫ · КОФЕ · ТРЕККИНГ</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Ущелья под две тысячи метров, террасы, туман через кратер Кова каждое утро. Аэропорта нет — потому и туристов почти нет.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">€800–1 500 / м²</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">паром из Минделу</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <img class="band__ph" src="img/ISL_SANTIAGO.jpg" alt="">
+    <div class="band__veil"></div>
+    <div class="wrap band__grid">
+      <span class="band__num" style="color:rgba(242,239,231,.3)">02</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сантьягу</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">СТОЛИЦА · ГОСПИТАЛЬ · ШКОЛЫ</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Прая: правительство, банки, единственные международные школы и центральный госпиталь. Внутренние рейсы на все острова отсюда.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">€1 000–2 500 / м²</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">международный аэропорт</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <img class="band__ph" src="img/ISL_SAOVICENTE.jpg" alt="">
+    <div class="band__veil"></div>
+    <div class="wrap band__grid" style="position:relative">
+      <span class="band__num" style="color:rgba(242,239,231,.3)">03</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сан-Висенти</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">КУЛЬТУРА · ПОРТ · МУЗЫКА</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Минделу — вторая столица и родина Сезарии Эворы. Колониальная архитектура, живая улица, паромный узел к Санту-Антану.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">от €100 000</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">объект у моря · аэропорт и паромы</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <img class="band__ph" src="img/ISL_SAL.jpg" alt="">
+    <div class="band__veil"></div>
+    <div class="wrap band__grid">
+      <span class="band__num" style="color:rgba(242,239,231,.3)">04</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сал</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ТУРИЗМ · КАПИТАЛ · 43 РЕЙСА</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Главные ворота страны и крупнейший аэропорт архипелага. Плоский и сухой — но сюда идёт основной иностранный капитал.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">€1 000–3 000 / м²</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">главный аэропорт страны</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <img class="band__ph" src="img/ISL_BOAVISTA.jpg" alt="">
+    <div class="band__veil"></div>
+    <div class="wrap band__grid" style="position:relative">
+      <span class="band__num" style="color:rgba(242,239,231,.3)">05</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Боа-Вишта</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ДЮНЫ · ПЛЯЖИ · КИТЫ</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Второй пляжный остров после Сала: дюны, киты у берега в сезон, растущая курортная застройка. Свой международный аэропорт.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">≈ €1 050 / м²</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">свой аэропорт</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="band" style="border-bottom:1px solid var(--line)">
+    <img class="band__ph" src="img/ISL_FOGO.jpg" alt="">
+    <div class="band__veil"></div>
+    <div class="wrap band__grid">
+      <span class="band__num" style="color:rgba(242,239,231,.3)">06</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Фогу</h3>
+        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ВУЛКАН · ВИНО · ЛАВА</p>
+      </div>
+      <p style="color:var(--dim);font-size:15px">Действующий вулкан Пику-ду-Фогу, 2 829 м. На лавовой почве растят арабику и делают вино. Сан-Филипе — третий по возрасту город страны.</p>
+      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
+        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">≈ €11–16 / м²</b>
+        <span class="mono" style="font-size:.64rem;color:var(--faint)">земля · внутренние рейсы</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ЦИФРЫ ================= -->
+<div class="wrap" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);margin:74px auto 0;border:1px solid var(--line)">
+  <div style="background:var(--black);padding:30px 22px;display:flex;flex-direction:column;gap:8px">
+    <b class="huge" style="font-size:38px;color:var(--gold)">4%</b>
+    <span style="font-size:.86rem;color:var(--dim)">Налог для самозанятых, режим REMPE</span>
+  </div>
+  <div style="background:var(--black);padding:30px 22px;display:flex;flex-direction:column;gap:8px">
+    <b class="huge" style="font-size:38px;color:var(--gold)">€</b>
+    <span style="font-size:.86rem;color:var(--dim)">Местная валюта жёстко привязана к евро с 1998 года — бюджет не пляшет от курса</span>
+  </div>
+  <div style="background:var(--black);padding:30px 22px;display:flex;flex-direction:column;gap:8px">
+    <b class="huge" style="font-size:38px;color:var(--gold)">€455</b>
+    <span style="font-size:.86rem;color:var(--dim)">Расходы одного человека в месяц</span>
+  </div>
+  <div style="background:var(--black);padding:30px 22px;display:flex;flex-direction:column;gap:8px">
+    <b class="huge" style="font-size:38px;color:var(--gold)">60</b>
+    <span style="font-size:.86rem;color:var(--dim)">Дней без визы за один въезд. Не более 90 дней за календарный год</span>
+  </div>
+</div>
+
+<!-- ================= МАРШРУТ ================= -->
+<div style="padding:80px 0 0">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding-bottom:34px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Жизнь · как это идёт</p>
+      <h2 class="huge" style="font-size:clamp(32px,4.6vw,56px)">От А до Я —<br>это буквально</h2>
+    </div>
+    <p style="color:var(--dim);font-size:17px;line-height:1.6">
+      Переезд разваливается не на больших решениях, а на мелочах: не тот перевод справки,
+      отменённый паром, подпись соседа, которую надо собрать лично. Мы ведём весь путь
+      и делаем это на месте, а не по переписке.
+    </p>
+  </div>
+
+  <div class="band">
+    <div class="wrap" style="display:grid;grid-template-columns:86px 1fr 1.5fr;gap:30px;padding:26px 0;align-items:baseline">
+      <span class="band__num" style="font-size:44px">01</span>
+      <h3 style="font-size:21px;font-weight:600">Разведка</h3>
+      <p style="color:var(--dim);font-size:15px">Шестьдесят дней без визы — этого хватает, чтобы пожить неделю и понять, ваше или нет. Маршрут собираем под конкретный остров, показываем недвижимость, соседей и место.</p>
+    </div>
+  </div>
+  <div class="band">
+    <div class="wrap" style="display:grid;grid-template-columns:86px 1fr 1.5fr;gap:30px;padding:26px 0;align-items:baseline">
+      <span class="band__num" style="font-size:44px">02</span>
+      <h3 style="font-size:21px;font-weight:600">Статус</h3>
+      <p style="color:var(--dim);font-size:15px">Микрокомпания по программе «фирма за один день», местный ИНН, справки, переводы, заверения, подача. Либо путь через покупку недвижимости, если нужен сразу постоянный статус.</p>
+    </div>
+  </div>
+  <div class="band">
+    <div class="wrap" style="display:grid;grid-template-columns:86px 1fr 1.5fr;gap:30px;padding:26px 0;align-items:baseline">
+      <span class="band__num" style="font-size:44px">03</span>
+      <h3 style="font-size:21px;font-weight:600">Жильё</h3>
+      <p style="color:var(--dim);font-size:15px">Сначала аренда, потом покупка или стройка — в таком порядке и никогда наоборот. Проверка титула на каждом острове своя: где-то наследственная чересполосица, где-то переплата за туристическую локацию.</p>
+    </div>
+  </div>
+  <div class="band">
+    <div class="wrap" style="display:grid;grid-template-columns:86px 1fr 1.5fr;gap:30px;padding:26px 0;align-items:baseline">
+      <span class="band__num" style="font-size:44px">04</span>
+      <h3 style="font-size:21px;font-weight:600">Быт</h3>
+      <p style="color:var(--dim);font-size:15px">Счёт и карта, интернет, страховка, школа, врач, подрядчики. Отдельно — честный разговор про медицину: серьёзные случаи лечат в Прае, и логистику туда считаем заранее.</p>
+    </div>
+  </div>
+  <div class="band" style="border-bottom:1px solid var(--line)">
+    <div class="wrap" style="display:grid;grid-template-columns:86px 1fr 1.5fr;gap:30px;padding:26px 0;align-items:baseline">
+      <span class="band__num" style="font-size:44px">05</span>
+      <h3 style="font-size:21px;font-weight:600">Врасти</h3>
+      <p style="color:var(--dim);font-size:15px">Португальский и местный криолу, знакомство с общиной, работа с муниципалитетом. Острова маленькие, здесь всё решается через отношения.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ПУТИ К СТАТУСУ ================= -->
+<div style="padding:80px 0 0">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding-bottom:34px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Жизнь · основания</p>
+      <h2 class="huge" style="font-size:clamp(32px,4.6vw,56px)">Пути<br>к статусу</h2>
+    </div>
+    <p style="color:var(--dim);font-size:17px;line-height:1.6">
+      Оснований несколько, и они отличаются не столько деньгами, сколько тем,
+      что от вас требуется и что вы получаете на выходе. Начинать почти всегда
+      стоит не с самого дорогого.
+    </p>
+  </div>
+
+  <div class="wrap" style="padding-bottom:22px">
+    <p style="color:var(--dim);font-size:15.5px;line-height:1.6;max-width:76ch">
+      До всякого статуса у вас есть <b style="color:var(--ink)">60 дней без визы</b> на один въезд,
+      но не более 90 дней за календарный год. Этого хватает, чтобы приехать, осмотреться
+      и решить — и обычно с этого и начинают.
+    </p>
+  </div>
+
+  <div class="wrap">
+    <div class="paths">
+
+      <article>
+        <p class="tag">Для удалённой работы</p>
+        <h3>Виза<br>кочевника</h3>
+        <p>Для тех, кто работает на зарубежных заказчиков и не хочет пока заводить
+        здесь юрлицо. Фирма не нужна, подтверждается доход и остаток на счету.</p>
+        <dl>
+          <div><dt>Требует</dt><dd>€1 500 на счету · €2 700 на семью</dd></div>
+          <div><dt>Даёт</dt><dd>право жить и работать удалённо</dd></div>
+        </dl>
+        <p class="warn">Источник по суммам неофициальный — проверяем под ваш случай.</p>
+      </article>
+
+      <article>
+        <p class="tag">Самый частый путь</p>
+        <h3>Своя<br>микрокомпания</h3>
+        <p>Регистрация фирмы бесплатная, уставный капитал не требуется. Даёт статус
+        и сразу переводит вас в льготный налоговый режим REMPE со ставкой 4 % вместо общей системы.</p>
+        <dl>
+          <div><dt>Стоит</dt><dd>≈ €750 на семью из четырёх</dd></div>
+          <div><dt>Срок</dt><dd>≈ 5 месяцев</dd></div>
+          <div><dt>Налог</dt><dd>4 % до 5 млн эскудо оборота</dd></div>
+        </dl>
+        <p class="warn">Нужен бизнес-план, местный счёт и справка о проживании
+        в муниципалитете от 6 месяцев — то есть сначала живёте, потом подаётесь.</p>
+      </article>
+
+      <article>
+        <p class="tag">ПМЖ сразу, без проживания</p>
+        <h3>Покупка<br>недвижимости</h3>
+        <p>Это <b style="color:var(--ink)">ПМЖ, а не ВНЖ</b>: статус бессрочный
+        и не требует фактически жить в стране — сам документ переоформляется раз
+        в пять лет, как паспорт. Закон — Lei n.º 30/IX/2018 от 23 апреля.</p>
+        <dl>
+          <div><dt>Порог</dt><dd>€80 000 или €120 000</dd></div>
+          <div><dt>Условие</dt><dd>деньги переведены из-за рубежа</dd></div>
+          <div><dt>Налог на имущество</dt><dd>льгота, не полное освобождение</dd></div>
+          <div><dt>Подача</dt><dd>лично, Casa do Cidadão</dd></div>
+        </dl>
+        <p class="warn">Про налог честно: освобождение действует при переходе права
+        и при наследовании, плюс скидка 50 % на десять лет — но её даёт муниципальная
+        ассамблея своим решением, автоматически она не появляется.</p>
+        <p class="warn">И главное про объект: первые 80 метров от воды —
+        неотчуждаемое публичное достояние, частной собственности там не бывает.
+        Смотрим дальше этой линии.</p>
+      </article>
+
+      <article>
+        <p class="tag">Прочие основания</p>
+        <h3>Контракт,<br>учёба, семья</h3>
+        <p>Трудовой договор с местным работодателем, зачисление в учебное заведение
+        или воссоединение с родственником-резидентом. Условия и пакет документов
+        разбираются индивидуально.</p>
+        <dl>
+          <div><dt>Общее для всех</dt><dd>подтверждённые средства</dd></div>
+          <div><dt>Гражданство</dt><dd>через 5 лет проживания</dd></div>
+        </dl>
+      </article>
+
+    </div>
+    <p class="mono" style="font-size:.66rem;color:var(--faint);padding-top:14px;line-height:1.7">
+      Какой путь ваш, зависит от источника дохода, состава семьи и того, собираетесь ли
+      вы жить здесь постоянно. Разбираем это на первом разговоре, до всяких документов.
+    </p>
+  </div>
+</div>
+
+<!-- ================= ПОЕЗДКИ ================= -->
+<div style="padding:80px 0 0">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    padding-bottom:34px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Поездки</p>
+      <h2 class="huge" style="font-size:clamp(32px,4.6vw,56px)">Сначала<br>приехать</h2>
+    </div>
+    <p style="color:var(--dim);font-size:17px;line-height:1.6">
+      Ни один переезд не начинается с документов. Он начинается с недели на месте,
+      после которой человек либо загорается, либо честно понимает, что это не его.
+      Мы собираем такую неделю целиком — и возим тех, кто едет просто посмотреть.
+    </p>
+  </div>
+
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:24px">
+    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding:32px 30px;display:flex;flex-direction:column;gap:15px;
+        border-right:1px solid var(--line)">
+        <p class="mono" style="font-size:.64rem;letter-spacing:.16em;color:var(--gold)">РАЗВЕДОЧНАЯ НЕДЕЛЯ</p>
+        <h3 class="huge" style="font-size:27px;letter-spacing:-.025em">Для тех, кто<br>присматривается</h3>
+        <p style="color:var(--dim);font-size:15px;line-height:1.55">
+          До поездки разбираем вашу ситуацию и подбираем остров под задачу — семье с детьми
+          и одиночке на удалёнке подходят разные. На месте встречаем, возим, показываем
+          жильё и участки в продаже, знакомим с нужными людьми.
+        </p>
+        <p class="mono" style="font-size:.7rem;color:var(--faint);margin-top:auto;padding-top:14px">
+          стоимость — <span style="color:var(--gold)">[УТОЧНИТЬ]</span>
+        </p>
+      </div>
+      <div style="padding:32px 30px;display:flex;flex-direction:column;gap:0">
+        <p class="tag tag--dim" style="padding-bottom:14px">Что входит</p>
+        <p style="padding:12px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px">Подбор острова под вашу ситуацию до вылета</p>
+        <p style="padding:12px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px">Встреча в аэропорту или порту, транспорт на месте</p>
+        <p style="padding:12px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px">Жильё и маршрут по острову на неделю</p>
+        <p style="padding:12px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px">Показ участков и домов в продаже</p>
+        <p style="padding:12px 0;border-block:1px solid var(--line);color:var(--dim);font-size:14.5px">Разбор вашей ситуации с юристом на месте</p>
+      </div>
+    </article>
+
+    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding:32px 30px;display:flex;flex-direction:column;gap:15px;
+        border-right:1px solid var(--line)">
+        <p class="mono" style="font-size:.64rem;letter-spacing:.16em;color:var(--gold)">МАРШРУТЫ ПО ОСТРОВАМ</p>
+        <h3 class="huge" style="font-size:27px;letter-spacing:-.025em">Для тех, кто<br>едет смотреть</h3>
+        <p style="color:var(--dim);font-size:15px;line-height:1.55">
+          Архипелаг устроен так, что между островами разницы больше, чем между странами:
+          вулкан, дюны, зелёные ущелья, колониальный порт. Собираем маршрут под интерес
+          и ведём его сами — с русским языком и без туристических наценок.
+        </p>
+        <p class="mono" style="font-size:.7rem;color:var(--faint);margin-top:auto;padding-top:14px">
+          направления и цены — <span style="color:var(--gold)">[УТОЧНИТЬ]</span>
+        </p>
+      </div>
+      <div style="position:relative;overflow:hidden;min-height:230px">
+        <img src="img/ISL_BOAVISTA.jpg" alt="Закат на побережье Боа-Вишты"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55">
+        <div style="position:absolute;inset:0;
+          background:linear-gradient(90deg,var(--black) 4%,rgba(11,11,12,.2) 100%)"></div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div style="position:relative;overflow:hidden;margin-top:74px;aspect-ratio:1500/640;max-height:420px">
+  <img src="img/W_GREEN.jpg" alt="Виноградники на вулканической почве Фогу"
+    style="width:100%;height:100%;object-fit:cover;display:block">
+  <div style="position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(11,11,12,.92) 4%,rgba(11,11,12,.18) 55%,rgba(11,11,12,.35) 100%)"></div>
+  <div class="wrap" style="position:absolute;inset:auto 0 0 0;padding-bottom:30px">
+    <p class="tag" style="padding-bottom:8px">Земля, которая ещё родит</p>
+    <h2 class="huge" style="font-size:clamp(24px,3.6vw,42px);max-width:22ch">
+      Виноград растёт прямо<br>на вулканической породе
+    </h2>
+  </div>
+</div>
+
+<!-- ================= ВОЗМОЖНОСТИ ================= -->
+<div style="background:var(--panel);margin-top:80px;padding:74px 0;border-block:1px solid var(--line)">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:38px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Инвестиции</p>
+      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Наши инвестиционные<br>проекты</h2>
+    </div>
+    <p style="color:var(--dim);font-size:16px;line-height:1.6">
+      Мы живём на островах и видим, что происходит на земле раньше, чем это доходит
+      до отчётов. Ниже — не витрина готовых проектов, а два направления, где движение
+      уже началось, и оно подтверждается не слухами, а деньгами и государственными целями.
+    </p>
+  </div>
+
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:24px">
+    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
+        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">ФЛАГМАН</p>
+        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">Возвращаем<br>засолённую землю</h3>
+        <p style="color:var(--dim);font-size:15px;line-height:1.55">
+          Страна ввозит <b style="color:var(--ink)">90 % продовольствия</b>, своё сельское хозяйство
+          закрывает от силы треть. Орошается всего <b style="color:var(--ink)">1 500–2 000 гектаров</b>
+          на всю страну, и почти всё это — Сантьягу и Санту-Антан. Земля под ними засолена:
+          в Санта-Крузе фермеры сообщают о десяти засолённых колодцах, в Тарафале
+          электропроводность скважин растёт год от года.
+        </p>
+      </div>
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          У нас прямой выход на специальные удобрения для работы с засолёнными почвами.
+          Это не про «вложиться в агро вообще» — это про конкретную задачу, которую
+          в стране признали национальной, и под которую есть государственный
+          научный партнёр: институт INIDA изучает солеустойчивость культур
+          на опреснительной станции на Сантьягу.
+        </p>
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Проект работает на всех шести островах — меняется только то, чья это земля.
+          На Сантьягу и Санту-Антане, где сосредоточена почти вся орошаемая земля страны,
+          это поле фермера. На Сале и Боа-Виште — территория отеля, аллеи и поля для гольфа,
+          которые выгорают по той же причине. Задача одна, разговор разный.
+        </p>
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Первый шаг всегда одинаковый: приезжаем, замеряем воду и почву, считаем программу
+          и даём смету на сезон. Дальше — ведём.
+        </p>
+        <p class="mono" style="font-size:.68rem;color:var(--faint)">
+          Сантьягу — 52 % пашни страны &nbsp;·&nbsp; Санту-Антан — 16 % &nbsp;·&nbsp; тростник даёт 62 % орошаемых площадей
+        </p>
+      </div>
+    </article>
+
+    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
+        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">ПОРТЫ</p>
+        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">€148 млн<br>из Европы</h3>
+        <p style="color:var(--dim);font-size:15px;line-height:1.55">
+          Евросоюз и Европейский инвестбанк вложили в порты архипелага
+          <b style="color:var(--ink)">148 миллионов евро</b>: 114 млн кредитов ЕИБ в 2024 году
+          и 34 млн безвозвратного гранта в январе 2026-го. Перестраивают Порту-Гранди
+          в Минделу, Порту-Ново на Санту-Антане, Порту-да-Палмейра на Сале
+          и единственную в Средней Атлантике верфь CABNAVE.
+        </p>
+      </div>
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Строить порт не нужно — его уже строят, и не на частные деньги.
+          Интересно то, что вокруг: снабжение, склады и холодная цепь, обслуживание
+          судов и экипажей, последняя миля. Спрос растёт по расписанию, которое
+          известно заранее, а источник финансирования не зависит от местного бюджета.
+        </p>
+        <p class="mono" style="font-size:.68rem;color:var(--faint)">
+          Сан-Висенти · Санту-Антан · Сал
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div class="wrap" style="padding-top:30px;display:flex;justify-content:space-between;
+    align-items:center;gap:24px;flex-wrap:wrap">
+    <p style="color:var(--dim);font-size:15px;max-width:60ch">
+      Под каждый остров есть свои направления — от восстановления террас
+      до солнечной генерации. Они собраны на страницах островов.
+    </p>
+    <a class="btn" href="#">Смотреть по островам</a>
+  </div>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="wrap" style="padding:80px 0 0">
+  <div style="display:flex;flex-direction:column;gap:18px;padding-bottom:30px">
+    <p class="tag">Вопросы</p>
+    <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">То, о чём спрашивают<br>раньше всего</h2>
+  </div>
+
+  <details open>
+    <summary>Как вообще добраться до островов?</summary>
+    <div class="ans">
+      <p>Международные ворота — Сал (крупнейший аэропорт архипелага, 43 направления) и Прая на Сантьягу. Дальше внутренние рейсы: у Сан-Висенти, Боа-Вишты и Фогу свои аэропорты, у Санту-Антана нет — только паром из Минделу, около часа.</p>
+      <p><b>Говорим честно:</b> внутренние рейсы отменяют, паромы — ещё чаще из-за волнения океана. Это касается прежде всего Санту-Антана и Фогу, где были перебои в 2025-м. Мы не делаем вид, что неудобства нет — мы его администрируем.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Что нужно сделать до вылета</summary>
+    <div class="ans">
+      <p>Гражданам РФ виза не нужна: <b>60 дней на одно пребывание, но не более 90 дней за календарный год</b>. Паспорт — со сроком не меньше полугода.</p>
+      <p>А вот аэропортовый сбор с 2026 года изменился, и на этом теряют деньги. Его платят <b>онлайн, заранее, на портале EASE</b> — и подать пререгистрацию нужно <b>минимум за пять дней</b> до вылета.</p>
+      <p class="mono" style="font-size:.76rem;color:var(--faint)">
+        Онлайн через EASE — <b style="color:var(--gold)">€32</b> &nbsp;·&nbsp;
+        на стойке в аэропорту — <b style="color:var(--ink)">€64</b>, ровно вдвое
+      </p>
+      <p>Безвизовый въезд от сбора не освобождает. Это первое, что мы проверяем перед вашей разведочной поездкой — пропущенная пререгистрация удваивает счёт на границе.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Что нужно, чтобы получить ВНЖ?</summary>
+    <div class="ans">
+      <p>Путей несколько: микрокомпания, трудовой контракт, учёба, воссоединение семьи, инвестиция в недвижимость. Для удалёнщика обычно проще первый — открытие фирмы бесплатное, уставный капитал не требуется.</p>
+      <p class="mono" style="font-size:.76rem;color:var(--faint)">
+        На семью из четырёх ≈ <b style="color:var(--gold)">€750</b> &nbsp;·&nbsp;
+        срок ≈ <b style="color:var(--gold)">5 месяцев</b> &nbsp;·&nbsp;
+        гражданство через <b style="color:var(--gold)">5 лет</b>
+      </p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Может ли иностранец купить землю?</summary>
+    <div class="ans">
+      <p>Да, на тех же правах, что и граждане. Покупка от определённой суммы даёт «зелёную карту» — постоянный вид на жительство на неограниченный срок, которое не требует фактически жить в стране. Основание — Lei n.º 30/IX/2018 от 23 апреля, порядок оформления введён распоряжениями 61/2021 и 62/2021.</p>
+      <p>Порог считают по ВВП на душу <b>того муниципалитета, где стоит объект</b>. Если посчитать по муниципалитету невозможно — а официальной статистики по муниципалитетам нет, — закон прямо предписывает брать <b>ВВП по острову</b>. По островам: Санту-Антан и Фогу ниже среднего, Сал, Боа-Вишта и Сан-Висенти выше.</p>
+      <p><b>Сантьягу — отдельный разговор.</b> По острову он в 2021 году оказался ниже среднего по стране буквально на волос: 379 382 против 379 408 эскудо. Формально это нижний порог, то есть €80 000 вместо €120 000. Разница в сорок тысяч евро упирается в двадцать шесть эскудо статистики, поэтому по конкретному адресу мы это уточняем в DEF, а не гадаем.</p>
+      <p><b>Отдельная льгота для пенсионеров:</b> если доход от пенсии получен не в Кабо-Верде, он освобождается от подоходного налога и не суммируется с прочими доходами.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Дом у самой воды — почему так нельзя</summary>
+    <div class="ans">
+      <p>Это первое, что мы проверяем в любой сделке у побережья, и место, где чаще
+      всего теряют деньги.</p>
+      <p>Полоса шириной <b>80 метров от уреза воды</b> — морское публичное достояние.
+      Конституция 1992 года прямо называет побережье <b>неотчуждаемым</b>: внутри этой
+      полосы <b>частной собственности не существует</b>. Не «сложно оформить», а
+      юридически невозможно.</p>
+      <p>Строить там можно только по концессии и только <b>временными, разборными
+      конструкциями</b>. Земля при этом остаётся государственной.</p>
+      <p>Постройки внутри 80 метров существуют — их много, и государство сейчас обсуждает,
+      как их узаконить. Но пока это обсуждение, а не закон. Покупая такой дом, вы покупаете
+      спор, а не собственность.</p>
+      <p class="mono" style="font-size:.76rem;color:var(--faint)">
+        Практический вывод: <b style="color:var(--gold)">смотреть от 80 метров и дальше</b>.
+        Вид на океан там ровно тот же.
+      </p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Где нельзя строить и покупать</summary>
+    <div class="ans">
+      <p>Вопрос, который почти никто не задаёт заранее, а потом упирается в него на сделке.
+      В стране действует национальная сеть охраняемых территорий — <b>47 участков на восьми
+      из девяти обитаемых островов</b>, и внутри них строительство ограничено или запрещено.</p>
+      <p><b>Фогу.</b> Вулкан, кальдера, обод и лес Монти-Велья — природный парк, около 8 500 га,
+      примерно пятая часть острова. После извержения 2014 года постоянное жильё в зоне высокого
+      риска запрещено. Больше тысячи человек в кальдере живут на государственной земле без
+      оформленных прав: купить у них нельзя, потому что продавать им нечего. Покупают в
+      Сан-Филипе и на побережье, за границей парка.</p>
+      <p><b>Санту-Антан.</b> Здесь самая большая охраняемая территория страны — Топу-ди-Короа,
+      около 8 500 га. Плюс парки Кова/Паул/Рибейра-да-Торре и Морсош, то есть ровно те долины,
+      куда обычно и хочется.</p>
+      <p><b>Боа-Вишта и Сал.</b> Боа-Вишта — рекордсмен по числу охраняемых участков, их 14,
+      включая четыре островка; Сал — 11, в том числе черепашьи заповедники и морская
+      резервация в бухте Мурдейра.</p>
+      <p>Это не значит «нельзя покупать». Это значит, что <b>границу парка нужно проверять
+      до задатка</b>, а не после. Мы это проверяем.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Как перемещаться между островами</summary>
+    <div class="ans">
+      <p>Два способа, и оба стоит закладывать с запасом. <b>Внутренние рейсы</b> связывают
+      острова с аэропортами — билеты продаёт местный перевозчик. <b>Паромы</b> ходят между
+      островами и это единственный путь на Санту-Антан: из Минделу в Порту-Ново, около часа.</p>
+      <p>Расписания и тех и других меняются, паромы отменяют при волнении океана.
+      Планируя пересадку на другой остров в день прилёта, вы рискуете; закладывайте сутки.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Как долететь из России</summary>
+    <div class="ans">
+      <p><b>Прямых рейсов нет.</b> Летят с пересадкой: через Лиссабон рейсами TAP —
+      самый удобный вариант, есть прямые Лиссабон–Сал и Лиссабон–Прая. Либо через
+      Касабланку рейсами Royal Air Maroc, одна стыковка. Также стыкуют Мадрид, Париж
+      и Франкфурт.</p>
+      <p>Дорога занимает <b>от 19 до 26 часов</b> в зависимости от города пересадки.
+      Это стоит знать до того, как строить планы «летать домой каждый месяц».</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Что с налогами на зарубежных заказчиков?</summary>
+    <div class="ans">
+      <p>Для самозанятых и микробизнеса действует упрощённый режим REMPE со ставкой <b>4 %</b> вместо общей системы. НДС 15 %, ключевая ставка 2,5 %. Малому бизнесу доступны льготные кредиты под 5–6 %.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>А что с медициной и школами?</summary>
+    <div class="ans">
+      <p>Основная инфраструктура — центральный госпиталь, международные школы, крупные банки — в Прае на Сантьягу. На остальных островах местная медицина и государственные школы. Логистику до Праи с конкретного острова разбираем заранее, а не по факту.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Сколько там русскоязычных?</summary>
+    <div class="ans">
+      <p>Очень мало: во всей стране около одиннадцати тысяч иностранцев, из них выходцев из СНГ примерно двести человек. Готовой диаспоры, которая подхватит и всё объяснит, здесь нет. Её роль выполняем мы — собственно, поэтому проект и существует.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ================= ФИНАЛ ================= -->
+<div style="position:relative;overflow:hidden;margin-top:80px">
+  <img src="img/SEA.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.26">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--black) 34%,rgba(11,11,12,.5) 100%)"></div>
+  <div class="wrap" style="position:relative;padding:88px 0;display:grid;
+    grid-template-columns:1.1fr .9fr;gap:52px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <p class="tag">Первый шаг</p>
+      <h2 class="huge" style="font-size:clamp(34px,5.2vw,64px)">Начните<br>с недели<br>на острове</h2>
+      <p style="color:var(--dim);font-size:17px;line-height:1.6;max-width:44ch">
+        Не с покупки, не с документов и не с созвона по видео. Сначала разбираем, какой
+        из шести ближе к тому, что вам нужно, — потом едете и смотрите сами.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn" href="#">Собрать поездку</a>
+        <a class="btn btn--ghost" href="#">Задать вопрос</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <p class="tag tag--dim" style="padding-bottom:12px">С чем приходят</p>
+      <p style="padding:13px 0;border-top:1px solid var(--line);color:var(--dim);font-size:15px">«Хочу переехать, но не знаю, с чего начать»</p>
+      <p style="padding:13px 0;border-top:1px solid var(--line);color:var(--dim);font-size:15px">«Работаю удалённо — какой статус мне подойдёт»</p>
+      <p style="padding:13px 0;border-top:1px solid var(--line);color:var(--dim);font-size:15px">«Присматриваю жильё, но боюсь купить проблему»</p>
+      <p style="padding:13px 0;border-top:1px solid var(--line);color:var(--dim);font-size:15px">«Семья, дети — как здесь со школой и врачами»</p>
+      <p style="padding:13px 0;border-block:1px solid var(--line);color:var(--dim);font-size:15px">«Хочу вложиться, но нужен человек на месте»</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ПОДВАЛ ================= -->
+<div class="wrap" style="padding:52px 0 60px;border-top:1px solid var(--line)">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;padding-bottom:30px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <p class="huge" style="font-size:20px;letter-spacing:.02em">Зелёный Мыс</p>
+      <p class="mono" style="font-size:.66rem;color:var(--faint);letter-spacing:.14em">
+        CABO VERDE · РЕЛОКАЦИЯ И ИНВЕСТИЦИИ
+      </p>
+    </div>
+    <p style="color:var(--faint);font-size:13.5px;line-height:1.6">
+      Цифры отражают положение на 2026 год и носят справочный характер: ставки, пороги
+      и требования меняются, а конкретный случай всегда разбирается отдельно. Материалы
+      сайта не являются публичной офертой и не являются предложением инвестиционных инструментов.
+    </p>
+  </div>
+  <p class="mono" style="font-size:.62rem;color:var(--faint);line-height:1.9;border-top:1px solid var(--line);padding-top:22px">
+    Фотографии — Wikimedia Commons. Понта-ду-Сол © CorreiaPM, общественное достояние ·
+    Прая © David Traver, общественное достояние · Минделу © Pedro Silva, CC BY 2.0 ·
+    Санта-Мария © Martikkk, CC BY-SA 3.0 · Боа-Вишта © SimonWaldherr, CC BY-SA 4.0 ·
+    Фогу © Aldo Bien, CC BY-SA 3.0 · долина и террасы Санту-Антана © Herbert wie, CC BY-SA 4.0 ·
+    Порту-Ново © Franzfoto, CC BY-SA 3.0 · Топу-да-Короа © Christian Pirkl, CC BY-SA 4.0
+  </p>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+  });
+</script>
+</body>
+</html>
