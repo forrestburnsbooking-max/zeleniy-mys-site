@@ -26,10 +26,17 @@
   .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
   .band__grid{display:grid;grid-template-columns:86px 1.05fr 1fr 210px;gap:30px;
     padding:30px 0;align-items:center;position:relative}
-  .band__num{font-size:60px;color:rgba(242,239,231,.16);font-weight:800;letter-spacing:-.045em;line-height:1}
-  .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
-  .band__veil{position:absolute;inset:0;
+  .band__num{font-size:60px;color:rgba(242,239,231,.16);font-weight:800;letter-spacing:-.045em;line-height:1;
+    transition:color .3s ease}
+  .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;
+    transition:opacity .5s ease,transform .7s ease;transform:scale(1)}
+  .band__veil{position:absolute;inset:0;opacity:1;transition:opacity .5s ease;
     background:linear-gradient(90deg,var(--black) 24%,rgba(11,11,12,.55) 100%)}
+  a.band{display:block;color:var(--ink);text-decoration:none;cursor:pointer}
+  a.band:hover .band__ph{opacity:.62;transform:scale(1.06)}
+  a.band:hover .band__veil{opacity:.45}
+  a.band:hover .band__num{color:var(--gold)}
+  a.band:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
   .btn{display:inline-block;background:var(--gold);color:var(--black);
     padding:17px 34px;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
   .btn:hover{background:#F5CE7A;color:var(--black)}
@@ -156,109 +163,6 @@
     background:linear-gradient(to top,var(--black) 2%,rgba(11,11,12,.12) 55%,rgba(11,11,12,.5) 100%)"></div>
 </div>
 
-<!-- ================= ТРИ НАПРАВЛЕНИЯ ================= -->
-<div style="padding:78px 0 0">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:30px">
-    <p class="tag">Чем занимаемся</p>
-    <p class="mono" style="font-size:.66rem;color:var(--faint)">три направления</p>
-  </div>
-
-  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-    background:var(--line);border:1px solid var(--line)">
-
-    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
-      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Жизнь</span>
-      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Переезд<br>и статус</h3>
-      <p style="color:var(--dim);font-size:15px;line-height:1.55">
-        Разбираем, какое основание подходит именно вам, и ведём до карты резидента:
-        фирма, недвижимость, контракт, семья. Дальше — банк, жильё, школа, врач,
-        подрядчики. Не консультация по переписке, а работа на месте.
-      </p>
-      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
-        border-top:1px solid var(--line)">пять оснований · сопровождение под ключ</p>
-    </article>
-
-    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
-      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Поездки</span>
-      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Приехать<br>и посмотреть</h3>
-      <p style="color:var(--dim);font-size:15px;line-height:1.55">
-        Разведочная неделя для тех, кто присматривается к переезду: подбираем остров
-        под задачу, встречаем, возим, показываем объекты и знакомим с людьми.
-        Отдельно — маршруты по островам для тех, кто едет просто смотреть.
-      </p>
-      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
-        border-top:1px solid var(--line)">разведка · маршруты · сопровождение</p>
-    </article>
-
-    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
-      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Инвестиции</span>
-      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Купить<br>и вложить</h3>
-      <p style="color:var(--dim);font-size:15px;line-height:1.55">
-        Подбор и проверка объекта, сопровождение сделки, оформление на месте.
-        Покупка от порога даёт сразу ПМЖ — «зелёную карту» вместе с ключами, без обязательства жить в стране.
-        Отдельно ведём собственные проекты на островах.
-      </p>
-      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
-        border-top:1px solid var(--line)">недвижимость · сделки · проекты</p>
-    </article>
-  </div>
-</div>
-
-<!-- ================= ТРИПТИХ ================= -->
-<div class="wrap" style="padding:70px 0 0">
-  <div style="display:grid;grid-template-columns:1fr;gap:12px">
-    <div style="display:grid;grid-template-columns:1fr;gap:12px">
-      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:1500/640">
-        <img src="img/W_OCEAN.jpg" alt="Бирюзовая бухта Боа-Вишты" style="width:100%;height:100%;object-fit:cover;display:block">
-        <figcaption class="mono" style="position:absolute;left:20px;bottom:16px;font-size:.62rem;
-          letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
-          background:rgba(11,11,12,.6);padding:6px 12px">Боа-Вишта · океан</figcaption>
-      </figure>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
-        <img src="img/W_LIFE.jpg" alt="Бухта на Сантьягу с пальмами" style="width:100%;height:100%;object-fit:cover;display:block">
-        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
-          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
-          background:rgba(11,11,12,.6);padding:5px 10px">Сантьягу</figcaption>
-      </figure>
-      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
-        <img src="img/W_TOWN.jpg" alt="Минделу с высоты" style="width:100%;height:100%;object-fit:cover;display:block">
-        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
-          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
-          background:rgba(11,11,12,.6);padding:5px 10px">Минделу</figcaption>
-      </figure>
-      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
-        <img src="img/W_SUN.jpg" alt="Бирюзовая вода у Сала" style="width:100%;height:100%;object-fit:cover;display:block">
-        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
-          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
-          background:rgba(11,11,12,.6);padding:5px 10px">Сал</figcaption>
-      </figure>
-    </div>
-  </div>
-</div>
-
-<!-- ================= ТЕЗИС ================= -->
-<div style="position:relative;overflow:hidden;border-bottom:1px solid var(--line)">
-  <img src="img/LIVE.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2">
-  <div style="position:absolute;inset:0;background:linear-gradient(105deg,var(--black) 38%,rgba(11,11,12,.4) 100%)"></div>
-  <div class="wrap" style="position:relative;padding:86px 0;display:grid;
-    grid-template-columns:1.1fr .9fr;gap:52px;align-items:center">
-    <div style="display:flex;flex-direction:column;gap:22px">
-      <p class="tag">Африканские Канары</p>
-      <h2 class="huge" style="font-size:clamp(34px,5vw,62px)">
-        Те же широты.<br>Другая цена.<br>Никакой очереди.
-      </h2>
-    </div>
-    <p style="font-size:18px;line-height:1.6;color:var(--dim)">
-      Вечная весна, Атлантика и вулканы — те же, что на Канарах, и та же широта.
-      Только здесь десять островов вместо семи, побережье не застроено,
-      а вход в вид на жительство дешевле. Мы не продаём место —
-      помогаем выбрать своё и проводим через всё, что дальше.
-    </p>
-  </div>
-</div>
-
 <!-- ================= КАРТА АРХИПЕЛАГА ================= -->
 <div style="padding:78px 0 0">
   <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;
@@ -369,6 +273,110 @@
   </div>
 </div>
 
+<!-- ================= ТРИ НАПРАВЛЕНИЯ ================= -->
+<div style="padding:78px 0 0">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:30px">
+    <p class="tag">Чем занимаемся</p>
+    <p class="mono" style="font-size:.66rem;color:var(--faint)">три направления</p>
+  </div>
+
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)">
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Жизнь</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Переезд<br>и статус</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Разбираем, какое основание подходит именно вам, и ведём до карты резидента:
+        фирма, недвижимость, контракт, семья. Дальше — банк, жильё, школа, врач,
+        подрядчики. Не консультация по переписке, а работа на месте.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">пять оснований · сопровождение под ключ</p>
+    </article>
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Поездки</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Приехать<br>и посмотреть</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Разведочная неделя для тех, кто присматривается к переезду: подбираем остров
+        под задачу, встречаем, возим, показываем объекты и знакомим с людьми.
+        Отдельно — маршруты по островам для тех, кто едет просто смотреть.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">разведка · маршруты · сопровождение</p>
+    </article>
+
+    <article style="background:var(--black);padding:34px 28px;display:flex;flex-direction:column;gap:15px">
+      <span class="huge" style="font-size:15px;letter-spacing:.14em;color:var(--gold)">Инвестиции</span>
+      <h3 class="huge" style="font-size:30px;letter-spacing:-.03em">Купить<br>и вложить</h3>
+      <p style="color:var(--dim);font-size:15px;line-height:1.55">
+        Подбор и проверка объекта, сопровождение сделки, оформление на месте.
+        Покупка от порога даёт сразу ПМЖ — «зелёную карту» вместе с ключами, без обязательства жить в стране.
+        Отдельно ведём собственные проекты на островах.
+      </p>
+      <p class="mono" style="font-size:.68rem;color:var(--faint);margin-top:auto;padding-top:16px;
+        border-top:1px solid var(--line)">недвижимость · сделки · проекты</p>
+    </article>
+  </div>
+</div>
+
+<!-- ================= ТРИПТИХ ================= -->
+<div class="wrap" style="padding:70px 0 0">
+  <div style="display:grid;grid-template-columns:1fr;gap:12px">
+    <div style="display:grid;grid-template-columns:1fr;gap:12px">
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:1500/640">
+        <img src="img/W_OCEAN.jpg" alt="Бирюзовая бухта Боа-Вишты" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:20px;bottom:16px;font-size:.62rem;
+          letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:6px 12px">Боа-Вишта · океан</figcaption>
+      </figure>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_LIFE.jpg" alt="Бухта на Сантьягу с пальмами" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Сантьягу</figcaption>
+      </figure>
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_TOWN.jpg" alt="Минделу с высоты" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Минделу</figcaption>
+      </figure>
+      <figure style="margin:0;position:relative;overflow:hidden;aspect-ratio:11/8">
+        <img src="img/W_SUN.jpg" alt="Бирюзовая вода у Сала" style="width:100%;height:100%;object-fit:cover;display:block">
+        <figcaption class="mono" style="position:absolute;left:14px;bottom:12px;font-size:.58rem;
+          letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+          background:rgba(11,11,12,.6);padding:5px 10px">Сал</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ТЕЗИС ================= -->
+<div style="position:relative;overflow:hidden;border-bottom:1px solid var(--line)">
+  <img src="img/LIVE.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2">
+  <div style="position:absolute;inset:0;background:linear-gradient(105deg,var(--black) 38%,rgba(11,11,12,.4) 100%)"></div>
+  <div class="wrap" style="position:relative;padding:86px 0;display:grid;
+    grid-template-columns:1.1fr .9fr;gap:52px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <p class="tag">Африканские Канары</p>
+      <h2 class="huge" style="font-size:clamp(34px,5vw,62px)">
+        Те же широты.<br>Другая цена.<br>Никакой очереди.
+      </h2>
+    </div>
+    <p style="font-size:18px;line-height:1.6;color:var(--dim)">
+      Вечная весна, Атлантика и вулканы — те же, что на Канарах, и та же широта.
+      Только здесь десять островов вместо семи, побережье не застроено,
+      а вход в вид на жительство дешевле. Мы не продаём место —
+      помогаем выбрать своё и проводим через всё, что дальше.
+    </p>
+  </div>
+</div>
+
+
 <!-- ================= ОСТРОВА ================= -->
 <div style="padding:74px 0 0">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:26px">
@@ -376,7 +384,9 @@
     <p class="mono" style="font-size:.66rem;color:var(--faint)">цена метра · как добраться</p>
   </div>
 
-  <div class="band">
+  <a class="band" href="santo-antao.html">
+    <img class="band__ph" src="img/ISL_SANTOANTAO.jpg" alt="">
+    <div class="band__veil"></div>
     <div class="wrap band__grid">
       <span class="band__num">01</span>
       <div style="display:flex;flex-direction:column;gap:6px">
@@ -389,9 +399,9 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">паром из Минделу</span>
       </div>
     </div>
-  </div>
+  </a>
 
-  <div class="band">
+  <a class="band" href="santiago.html">
     <img class="band__ph" src="img/ISL_SANTIAGO.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid">
@@ -406,9 +416,9 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">международный аэропорт</span>
       </div>
     </div>
-  </div>
+  </a>
 
-  <div class="band">
+  <a class="band" href="sao-vicente.html">
     <img class="band__ph" src="img/ISL_SAOVICENTE.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid" style="position:relative">
@@ -423,9 +433,9 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">объект у моря · аэропорт и паромы</span>
       </div>
     </div>
-  </div>
+  </a>
 
-  <div class="band">
+  <a class="band" href="sal.html">
     <img class="band__ph" src="img/ISL_SAL.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid">
@@ -440,9 +450,9 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">главный аэропорт страны</span>
       </div>
     </div>
-  </div>
+  </a>
 
-  <div class="band">
+  <a class="band" href="boa-vista.html">
     <img class="band__ph" src="img/ISL_BOAVISTA.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid" style="position:relative">
@@ -457,9 +467,9 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">свой аэропорт</span>
       </div>
     </div>
-  </div>
+  </a>
 
-  <div class="band" style="border-bottom:1px solid var(--line)">
+  <a class="band" href="fogo.html" style="border-bottom:1px solid var(--line)">
     <img class="band__ph" src="img/ISL_FOGO.jpg" alt="">
     <div class="band__veil"></div>
     <div class="wrap band__grid">
@@ -474,7 +484,7 @@
         <span class="mono" style="font-size:.64rem;color:var(--faint)">земля · внутренние рейсы</span>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 
 <!-- ================= ЦИФРЫ ================= -->
