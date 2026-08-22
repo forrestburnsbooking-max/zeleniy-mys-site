@@ -64,6 +64,15 @@
   .isl--ours:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
   .isl--other{opacity:.34;pointer-events:none}
   .isl--other .isl__l{color:var(--faint);font-size:.58rem}
+  .routes{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .rt{fill:none;stroke:var(--gold);vector-effect:non-scaling-stroke;
+    stroke-linecap:round;stroke-linejoin:round}
+  .rt--daily{stroke-width:2;opacity:.5}
+  .rt--w3{stroke-width:1.3;opacity:.34;stroke-dasharray:6 4}
+  .rt--w2{stroke-width:1.3;opacity:.28;stroke-dasharray:2 5}
+  .ap{font-style:normal;padding-left:.35em}
+  .ap--intl{color:var(--gold)}
+  .ap--dom{color:var(--faint)}
   .map__hint{position:absolute;z-index:2;left:52%;top:39%;transform:translate(-50%,-50%);
     display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:none;text-align:center}
   .map__hint span{width:6px;height:6px;border-radius:50%;background:var(--gold);
@@ -188,6 +197,14 @@
 
   <div class="wrap">
     <div class="map">
+      <svg class="routes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Барлавенту · ежедневно: Сан-Висенти — Санту-Антан -->
+        <line class="rt rt--daily" x1="16.9" y1="17.2" x2="10.5" y2="9.1"/>
+        <!-- Редонда · 3 раза в неделю: Сан-Висенти — Сан-Николау — Сал — Боа-Вишта — Сантьягу -->
+        <polyline class="rt rt--w3" points="16.9,17.2 40.5,26.3 86.1,21.5 89.5,44.5 62.5,82.8"/>
+        <!-- Сотавенту · 2 раза в неделю: Майу — Сантьягу — Фогу — Брава -->
+        <polyline class="rt rt--w2" points="78.0,77.4 62.5,82.8 38.2,87.6 25.7,90.1"/>
+      </svg>
       <a class="isl isl--ours" href="santo-antao.html"
          style="left:10.5%;top:9.1%;width:14.0%">
         <img src="img/MAP_santoantao.jpg" alt="Санту-Антан со спутника">
@@ -196,7 +213,7 @@
       <a class="isl isl--ours" href="sao-vicente.html"
          style="left:16.9%;top:17.2%;width:7.9%">
         <img src="img/MAP_saovicente.jpg" alt="Сан-Висенти со спутника">
-        <span class="isl__l">Сан-Висенти</span>
+        <span class="isl__l">Сан-Висенти<i class="ap ap--intl">✈</i></span>
       </a>
       <a class="isl isl--ours" href="santa-luzia.html"
          style="left:24.7%;top:20.1%;width:4.1%">
@@ -206,32 +223,32 @@
       <a class="isl isl--ours" href="sao-nicolau.html"
          style="left:40.5%;top:26.3%;width:14.6%">
         <img src="img/MAP_saonicolau.jpg" alt="Сан-Николау со спутника">
-        <span class="isl__l">Сан-Николау</span>
+        <span class="isl__l">Сан-Николау<i class="ap ap--dom">✈</i></span>
       </a>
       <a class="isl isl--ours" href="sal.html"
          style="left:86.1%;top:21.5%;width:3.9%">
         <img src="img/MAP_sal.jpg" alt="Сал со спутника">
-        <span class="isl__l">Сал</span>
+        <span class="isl__l">Сал<i class="ap ap--intl">✈</i></span>
       </a>
       <a class="isl isl--ours" href="boa-vista.html"
          style="left:89.5%;top:44.5%;width:9.5%">
         <img src="img/MAP_boavista.jpg" alt="Боа-Вишта со спутника">
-        <span class="isl__l">Боа-Вишта</span>
+        <span class="isl__l">Боа-Вишта<i class="ap ap--intl">✈</i></span>
       </a>
       <a class="isl isl--ours" href="maio.html"
          style="left:78.0%;top:77.4%;width:5.4%">
         <img src="img/MAP_maio.jpg" alt="Майу со спутника">
-        <span class="isl__l">Майу</span>
+        <span class="isl__l">Майу<i class="ap ap--dom">✈</i></span>
       </a>
       <a class="isl isl--ours" href="santiago.html"
          style="left:62.5%;top:82.8%;width:9.5%">
         <img src="img/MAP_santiago.jpg" alt="Сантьягу со спутника">
-        <span class="isl__l">Сантьягу</span>
+        <span class="isl__l">Сантьягу<i class="ap ap--intl">✈</i></span>
       </a>
       <a class="isl isl--ours" href="fogo.html"
          style="left:38.2%;top:87.6%;width:8.6%">
         <img src="img/MAP_fogo.jpg" alt="Фогу со спутника">
-        <span class="isl__l">Фогу</span>
+        <span class="isl__l">Фогу<i class="ap ap--dom">✈</i></span>
       </a>
       <a class="isl isl--ours" href="brava.html"
          style="left:25.7%;top:90.1%;width:3.4%">
@@ -268,6 +285,27 @@
         <span class="loc-t loc-t--dist">570 км</span>
       </div>
     </div>
+    <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:center;padding-top:16px;
+      border-top:1px solid var(--line);margin-top:14px">
+      <span class="mono" style="font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+        color:var(--gold)">Паром</span>
+      <span class="mono" style="display:flex;align-items:center;gap:8px;font-size:.64rem;color:var(--dim)">
+        <svg width="34" height="8" aria-hidden="true"><line class="rt rt--daily" x1="0" y1="4" x2="34" y2="4"/></svg>
+        Барлавенту · ежедневно
+      </span>
+      <span class="mono" style="display:flex;align-items:center;gap:8px;font-size:.64rem;color:var(--dim)">
+        <svg width="34" height="8" aria-hidden="true"><line class="rt rt--w3" x1="0" y1="4" x2="34" y2="4"/></svg>
+        Редонда · 3 раза в неделю
+      </span>
+      <span class="mono" style="display:flex;align-items:center;gap:8px;font-size:.64rem;color:var(--dim)">
+        <svg width="34" height="8" aria-hidden="true"><line class="rt rt--w2" x1="0" y1="4" x2="34" y2="4"/></svg>
+        Сотавенту · 2 раза в неделю
+      </span>
+      <span class="mono" style="font-size:.64rem;color:var(--dim)">
+        <i class="ap ap--intl" style="padding:0">✈</i> международный аэропорт &nbsp;·&nbsp;
+        <i class="ap ap--dom" style="padding:0">✈</i> только внутренние рейсы
+      </span>
+    </div>
     <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:14px">
       <p class="mono" style="font-size:.64rem;color:var(--faint)">
         Снимки Sentinel-2 · Copernicus / EOX, CC BY-SA 4.0
@@ -276,6 +314,12 @@
         Нажмите на остров, чтобы открыть его страницу
       </p>
     </div>
+    <p style="color:var(--dim);font-size:14px;line-height:1.65;padding-top:12px;max-width:74ch">
+      <b style="color:var(--ink)">Санту-Антан и Брава — только паромом</b>, аэропортов там нет:
+      на Браву самолёты не летают из-за бокового ветра, на Санту-Антан полосу закрыли.
+      Внутренние рейсы идут через Праю. Паромы отменяют при волнении океана — это
+      единственное, что реально стоит закладывать в планы с запасом.
+    </p>
     <p style="color:var(--faint);font-size:13.5px;line-height:1.6;padding-top:10px;max-width:74ch">
       Острова лежат в 570 километрах западнее африканского берега. Имя они получили
       от мыса Зелёный у Дакара — самой западной точки материка: португальцы, шедшие
