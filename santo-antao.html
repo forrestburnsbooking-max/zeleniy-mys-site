@@ -79,6 +79,8 @@
   .hypo{border:1px solid var(--line);border-left:2px solid var(--gold);
     padding:18px 22px;display:flex;flex-direction:column;gap:7px}
   figure{margin:0;display:flex;flex-direction:column;gap:8px}
+  .back-map{transition:background .2s ease,border-color .2s ease}
+  .back-map:hover{background:rgba(11,11,12,.92);border-color:var(--gold)}
   figcaption{font-family:ui-monospace,Menlo,monospace;font-size:.64rem;color:var(--faint)}
 
   /* ===== МОБИЛЬНАЯ ВЁРСТКА =====
@@ -111,7 +113,11 @@
       <span class="mono" style="font-size:.68rem;color:var(--faint)">живём здесь · отвечаем сами</span>
     </div>
   </div>
-  <figure>
+  <figure style="position:relative">
+    <a href="index.html#map" class="mono back-map" style="position:absolute;top:14px;left:14px;z-index:2;
+      background:rgba(11,11,12,.72);backdrop-filter:blur(3px);color:var(--ink);
+      text-decoration:none;padding:8px 14px;font-size:.64rem;letter-spacing:.1em;
+      text-transform:uppercase;border:1px solid var(--line2)">← Назад к архипелагу</a>
     <img src="img/SAT_santoantao.jpg" alt="Санту-Антан со спутника"
       style="width:100%;display:block">
     <figcaption>Снимок Sentinel-2 · Copernicus / EOX, CC BY-SA 4.0</figcaption>
