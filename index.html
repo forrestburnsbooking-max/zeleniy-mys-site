@@ -28,13 +28,16 @@
     padding:30px 0;align-items:center;position:relative}
   .band__num{font-size:60px;color:rgba(242,239,231,.16);font-weight:800;letter-spacing:-.045em;line-height:1;
     transition:color .3s ease}
-  .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;
-    transition:opacity .5s ease,transform .7s ease;transform:scale(1)}
+  /* Фото не приглушаем: показываем как есть, а читаемость текста держим
+     градиентом слева (там номер, название, описание) и тенью под текстом. */
+  .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;
+    transition:transform .7s ease;transform:scale(1)}
   .band__veil{position:absolute;inset:0;opacity:1;transition:opacity .5s ease;
-    background:linear-gradient(90deg,var(--black) 24%,rgba(11,11,12,.55) 100%)}
+    background:linear-gradient(90deg,var(--black) 4%,rgba(11,11,12,.82) 34%,rgba(11,11,12,.42) 100%)}
+  .band__grid > *{text-shadow:0 1px 10px rgba(5,10,17,.85),0 0 3px rgba(5,10,17,.7)}
   a.band{display:block;color:var(--ink);text-decoration:none;cursor:pointer}
-  a.band:hover .band__ph{opacity:.62;transform:scale(1.06)}
-  a.band:hover .band__veil{opacity:.45}
+  a.band:hover .band__ph{transform:scale(1.06)}
+  a.band:hover .band__veil{opacity:.72}
   a.band:hover .band__num{color:var(--gold)}
   a.band:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
   .btn{display:inline-block;background:var(--gold);color:var(--black);
