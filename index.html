@@ -30,10 +30,15 @@
     transform-origin:58% 62%;animation:heroPan 30s ease-in-out infinite alternate}
   @keyframes heroPan{from{transform:scale(1)}to{transform:scale(1.1)}}
   @media(prefers-reduced-motion:reduce){.hero__ph{animation:none}}
+  /* Две вуали: вертикальная гасит только низ (переход в чёрную страницу),
+     горизонтальная затемняет левый край под текст. Середина и верх остаются
+     светлыми — иначе пляж выглядит ночным, а заголовок висит на чёрном. */
   .hero__veil{position:absolute;inset:0;background:
-    linear-gradient(to top,var(--black) 3%,rgba(11,11,12,.62) 38%,rgba(11,11,12,.25) 100%)}
+    linear-gradient(90deg,rgba(11,11,12,.7) 0%,rgba(11,11,12,.15) 50%,rgba(11,11,12,0) 75%),
+    linear-gradient(to top,rgba(11,11,12,.92) 0%,rgba(11,11,12,.55) 18%,
+      rgba(11,11,12,.12) 50%,rgba(11,11,12,0) 100%)}
   .hero__body{position:relative;padding:70px 0 54px;display:flex;flex-direction:column;gap:28px}
-  .hero__body h1{text-shadow:0 2px 24px rgba(5,10,17,.75)}
+  .hero__body h1{text-shadow:0 2px 28px rgba(5,10,17,.9),0 1px 6px rgba(5,10,17,.7)}
   .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
   .band__grid{display:grid;grid-template-columns:86px 1.05fr 1fr 210px;gap:30px;
     padding:30px 0;align-items:center;position:relative}
