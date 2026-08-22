@@ -61,6 +61,18 @@
   .btn:hover{background:#F5CE7A;color:var(--black)}
   .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
   .btn--ghost:hover{background:rgba(242,239,231,.06);color:var(--ink)}
+  .lead{display:flex;flex-direction:column;gap:20px}
+  .lead label{display:flex;flex-direction:column;gap:7px}
+  .lead span{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.6rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  .lead input{background:transparent;border:0;border-bottom:1px solid var(--line-2);
+    color:var(--ink);font:inherit;font-size:17px;padding:9px 2px;outline:0;
+    transition:border-color .2s ease}
+  .lead input::placeholder{color:var(--faint)}
+  .lead input:focus{border-bottom-color:var(--gold)}
+  .lead button{border:0;cursor:pointer;font:inherit;align-self:flex-start;margin-top:4px}
+  .lead__note{font-size:13px;color:var(--faint);line-height:1.6}
+  .lead__ok{color:var(--gold);font-size:14px;display:none}
 
 
 
@@ -840,8 +852,8 @@
         из островов ближе к тому, что вам нужно, — потом едете и смотрите сами.
       </p>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a class="btn" href="#">Собрать поездку</a>
-        <a class="btn btn--ghost" href="#">Задать вопрос</a>
+        <a class="btn" href="#contact">Собрать поездку</a>
+        <a class="btn btn--ghost" href="#contact">Задать вопрос</a>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:0">
@@ -854,6 +866,60 @@
     </div>
   </div>
 </div>
+
+<!-- ================= КОНТАКТ ================= -->
+<div id="contact" style="background:var(--panel);border-top:1px solid var(--line);padding:74px 0">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Оставьте контакты</p>
+      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Свяжемся<br>сами</h2>
+      <p style="color:var(--dim);font-size:16px;line-height:1.6;max-width:42ch">
+        Напишите, как с вами удобнее связаться. Отвечаем лично — мы живём здесь
+        и разбираем каждый случай отдельно.
+      </p>
+    </div>
+
+    <form class="lead" id="leadForm" novalidate>
+      <label><span>Имя</span><input name="name" type="text" placeholder="Как к вам обращаться" required></label>
+      <label><span>E-mail</span><input name="email" type="email" placeholder="you@example.com"></label>
+      <label><span>WhatsApp</span><input name="wa" type="tel" placeholder="+7 900 000-00-00"></label>
+      <button class="btn" type="submit">Отправить</button>
+      <p class="lead__note">Оставьте хотя бы один способ связи — почту или WhatsApp.</p>
+      <p class="lead__ok" id="leadOk">Спасибо! Открываем почтовую программу — письмо уже собрано.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  /* Сайт статический, бэкенда нет: форма собирает письмо и открывает почтовую
+     программу. Чтобы переключить на WhatsApp или на сервис форм — менять здесь. */
+  (function () {
+    var CONTACT_EMAIL = "";   /* ← ВПИСАТЬ почту для заявок */
+    var CONTACT_WA    = "";   /* ← ВПИСАТЬ номер WhatsApp в формате 2389xxxxxx */
+    var f = document.getElementById("leadForm");
+    if (!f) return;
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = new FormData(f);
+      var name = (d.get("name") || "").trim();
+      var mail = (d.get("email") || "").trim();
+      var wa   = (d.get("wa") || "").trim();
+      if (!name) { f.querySelector('[name=name]').focus(); return; }
+      if (!mail && !wa) { f.querySelector('[name=email]').focus(); return; }
+      var text = "Заявка с сайта «Зелёный Мыс»\n\nИмя: " + name +
+                 "\nE-mail: " + (mail || "—") + "\nWhatsApp: " + (wa || "—");
+      if (CONTACT_WA) {
+        window.open("https://wa.me/" + CONTACT_WA + "?text=" + encodeURIComponent(text), "_blank");
+      } else if (CONTACT_EMAIL) {
+        window.location.href = "mailto:" + CONTACT_EMAIL +
+          "?subject=" + encodeURIComponent("Заявка с сайта — " + name) +
+          "&body=" + encodeURIComponent(text);
+      } else { return; }
+      document.getElementById("leadOk").style.display = "block";
+      f.reset();
+    });
+  })();
+</script>
 
 <!-- ================= ПОДВАЛ ================= -->
 <div class="wrap" style="padding:52px 0 60px;border-top:1px solid var(--line)">
