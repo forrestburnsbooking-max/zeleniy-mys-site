@@ -75,13 +75,14 @@
   .ap{font-style:normal;padding-left:.35em}
   .ap--intl{color:var(--gold)}
   .ap--dom{color:var(--faint)}
-  .map__hint{position:absolute;z-index:2;left:52%;top:39%;transform:translate(-50%,-50%);
-    display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:none;text-align:center}
-  .map__hint span{width:6px;height:6px;border-radius:50%;background:var(--gold);
-    opacity:.75;animation:mapPulse 2.4s ease-in-out infinite}
-  .map__hint b{font-size:.6rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--faint)}
-  @keyframes mapPulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(2.2);opacity:.12}}
+  /* подсказка стоит в «дыре» архипелага — там нет ни островов, ни паромных линий */
+  .map__hint{position:absolute;z-index:2;left:46%;top:56%;transform:translate(-50%,-50%);
+    display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;text-align:center}
+  .map__hint span{width:7px;height:7px;border-radius:50%;background:var(--gold);
+    opacity:.95;animation:mapPulse 2.4s ease-in-out infinite}
+  .map__hint b{font-size:.66rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);text-shadow:0 1px 8px rgba(5,10,17,.9),0 0 2px rgba(5,10,17,.9)}
+  @keyframes mapPulse{0%,100%{transform:scale(1);opacity:.95}50%{transform:scale(2.4);opacity:.15}}
   @media(prefers-reduced-motion:reduce){.map__hint span{animation:none}}
   .locator{position:absolute;z-index:4;left:2.5%;bottom:3.5%;width:21%;min-width:150px;
     aspect-ratio:1/1;border:1px solid var(--line);background:rgba(9,20,31,.86);
