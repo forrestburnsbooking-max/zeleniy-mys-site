@@ -93,6 +93,15 @@
     padding:18px 22px;display:flex;flex-direction:column;gap:7px}
   figure{margin:0;display:flex;flex-direction:column;gap:8px}
   figcaption{font-family:ui-monospace,Menlo,monospace;font-size:.64rem;color:var(--faint)}
+
+  /* ===== МОБИЛЬНАЯ ВЁРСТКА =====
+     Герой и профиль вёрстаны инлайн grid-template-columns:1fr 1fr без media-запроса —
+     на узких экранах это давит текст в два колонки шириной ~150px. Атрибутный селектор
+     бьёт по инлайн-style, поэтому нужен !important. */
+  @media (max-width:760px){
+    .wrap{width:min(100% - 2.2rem,1140px)}
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  }
 </style>
 </head>
 <body>

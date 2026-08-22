@@ -99,6 +99,26 @@
   details[open] summary::after{content:"\2212"}
   .ans{padding-bottom:22px;color:var(--dim);max-width:66ch;display:flex;flex-direction:column;gap:12px}
   .ans b{color:var(--ink);font-weight:600}
+
+  /* ===== МОБИЛЬНАЯ ВЁРСТКА =====
+     Секции вёрстаны инлайн-стилями с фиксированными grid-колонками (в т.ч. с жёсткими px,
+     напр. .band__grid 86px/210px) — без этого блока на узких экранах верстка вылезает
+     горизонтально. Атрибутные селекторы бьют по инлайн-style, поэтому нужен !important. */
+  @media (max-width:760px){
+    .wrap{width:min(100% - 2.2rem,1140px)}
+    .band__grid{grid-template-columns:1fr!important;row-gap:10px;padding:22px 0}
+    .band__num{font-size:34px}
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns:1fr 1.15fr"],
+    [style*="grid-template-columns:1.1fr .9fr"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:86px 1fr 1.5fr"]
+      {grid-template-columns:1fr!important}
+    [style*="border-right:1px solid var(--line)"]
+      {border-right:none!important;border-bottom:1px solid var(--line)!important}
+    [style*="text-align:right"]{text-align:left!important}
+  }
 </style>
 </head>
 <body>
