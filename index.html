@@ -104,6 +104,7 @@
   .ap{font-style:normal;padding-left:.35em}
   .ap--intl{color:var(--gold)}
   .ap--dom{color:var(--faint)}
+  .cap{font-style:normal;padding-right:.35em;color:var(--gold)}
   /* подсказка стоит в «дыре» архипелага — там нет ни островов, ни паромных линий */
   .map__hint{position:absolute;z-index:2;left:46%;top:56%;transform:translate(-50%,-50%);
     display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;text-align:center}
@@ -282,7 +283,7 @@
       <a class="isl isl--ours" href="santiago.html"
          style="left:62.5%;top:82.8%;width:9.5%">
         <img src="img/MAP_santiago.jpg" alt="Сантьягу со спутника">
-        <span class="isl__l">Сантьягу<i class="ap ap--intl">✈</i></span>
+        <span class="isl__l"><i class="cap" title="столица">★</i>Сантьягу<i class="ap ap--intl">✈</i></span>
       </a>
       <a class="isl isl--ours" href="fogo.html"
          style="left:38.2%;top:87.6%;width:8.6%">
@@ -329,7 +330,7 @@
         Снимки Sentinel-2 · Copernicus / EOX, CC BY-SA 4.0
       </p>
       <p class="mono" style="font-size:.64rem;color:var(--faint)">
-        Нажмите на остров, чтобы открыть его страницу
+        Нажмите на остров, чтобы открыть его страницу · ★ Прая, столица · ✈ есть аэропорт
       </p>
     </div>
   </div>
