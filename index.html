@@ -49,11 +49,11 @@
   .band__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;
     transition:transform .7s ease;transform:scale(1)}
   .band__veil{position:absolute;inset:0;opacity:1;transition:opacity .5s ease;
-    background:linear-gradient(90deg,var(--black) 4%,rgba(11,11,12,.82) 34%,rgba(11,11,12,.42) 100%)}
+    background:linear-gradient(90deg,rgba(11,11,12,.62) 4%,rgba(11,11,12,.34) 34%,rgba(11,11,12,.08) 100%)}
   .band__grid > *{text-shadow:0 1px 10px rgba(5,10,17,.85),0 0 3px rgba(5,10,17,.7)}
   a.band{display:block;color:var(--ink);text-decoration:none;cursor:pointer}
   a.band:hover .band__ph{transform:scale(1.06)}
-  a.band:hover .band__veil{opacity:.72}
+  a.band:hover .band__veil{opacity:.55}
   a.band:hover .band__num{color:var(--gold)}
   a.band:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
   .btn{display:inline-block;background:var(--gold);color:var(--black);
@@ -449,267 +449,11 @@
   </div>
 </div>
 
-<!-- ================= ОСТРОВА ================= -->
+<!-- ================= ПРОЕКТЫ ================= -->
 <div style="padding:74px 0 0">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:26px">
-    <p class="tag">Острова</p>
-    <p class="mono" style="font-size:.66rem;color:var(--faint)">ориентир по цене · как добраться</p>
-  </div>
-
-  <a class="band" href="santo-antao.html">
-    <img class="band__ph" src="img/ISL_SANTOANTAO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num">01</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Санту-Антан</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ГОРЫ · КОФЕ · ТРЕККИНГ</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Ущелья под две тысячи метров, террасы, туман через кратер Кова каждое утро. Аэропорта нет — потому и туристов почти нет.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">€115 000–170 000</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">дом с садом · паром из Минделу</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="santiago.html">
-    <img class="band__ph" src="img/ISL_SANTIAGO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">02</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сантьягу</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">СТОЛИЦА · ГОСПИТАЛЬ · ШКОЛЫ</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Прая: правительство, банки, единственные международные школы и центральный госпиталь. Внутренние рейсы на все острова отсюда.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">≈ €115 000</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">квартира у моря · аэропорт</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="sao-vicente.html">
-    <img class="band__ph" src="img/ISL_SAOVICENTE.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid" style="position:relative">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">03</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сан-Висенти</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">КУЛЬТУРА · ПОРТ · МУЗЫКА</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Минделу — вторая столица и родина Сезарии Эворы. Колониальная архитектура, живая улица, паромный узел к Санту-Антану.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">от €115 000</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">объект у моря · аэропорт и паромы</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="sal.html">
-    <img class="band__ph" src="img/ISL_SAL.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">04</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сал</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ТУРИЗМ · КАПИТАЛ · 43 РЕЙСА</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Главные ворота страны и крупнейший аэропорт архипелага. Плоский и сухой — но сюда идёт основной иностранный капитал.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">€70 000–170 000</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">квартира · главный аэропорт страны</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="boa-vista.html">
-    <img class="band__ph" src="img/HERO_BEACH.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid" style="position:relative">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">05</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Боа-Вишта</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ДЮНЫ · ПЛЯЖИ · КИТЫ</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Второй пляжный остров после Сала: дюны, киты у берега в сезон, растущая курортная застройка. Свой международный аэропорт.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">от €80 000</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">квартира · свой аэропорт</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="fogo.html">
-    <img class="band__ph" src="img/ISL_FOGO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">06</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Фогу</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ВУЛКАН · ВИНО · ЛАВА</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Действующий вулкан Пику-ду-Фогу, 2 829 м. На лавовой почве растят арабику и делают вино. Сан-Филипе — третий по возрасту город страны.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">[УТОЧНИТЬ]</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">земля · внутренние рейсы</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="sao-nicolau.html">
-    <img class="band__ph" src="img/ISL_SAONICOLAU.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">07</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Сан-Николау</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ГОРЫ · САДЫ · ПОХОД</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Второй горный остров страны, профиль похож на Санту-Антан: пассат, дожди, фруктовые долины. Только внутренний аэропорт.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">[УТОЧНИТЬ]</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">внутренний рейс или паром</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="maio.html">
-    <img class="band__ph" src="img/ISL_MAIO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">08</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Майу</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">СОЛЯНЫЕ ОЗЁРА · ТИШИНА</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Самый тихий и малоразвитый остров архипелага. Историческая соляная добыча Порту-Инглеш, застройки почти нет.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">[УТОЧНИТЬ]</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">паром из Праи</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="santa-luzia.html">
-    <img class="band__ph" src="img/ISL_SANTALUZIA.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">09</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Санта-Лузия</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ЗАПОВЕДНИК · БЕЗ ЛЮДЕЙ</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Единственный необитаемый остров страны — интегральный природный резерват с 1990 года. Земли здесь не продают, мы это не скрываем.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">не продаётся</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">только тур с разрешением</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="brava.html" style="border-bottom:1px solid var(--line)">
-    <img class="band__ph" src="img/ISL_BRAVA.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <span class="band__num" style="color:rgba(242,239,231,.3)">10</span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:33px;letter-spacing:-.03em">Брава</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">САМЫЙ ЗЕЛЁНЫЙ · БЕЗ АЭРОПОРТА</p>
-      </div>
-      <p style="color:var(--dim);font-size:15px">Самый маленький и самый зелёный остров страны. Аэропорта нет — только паром с Фогу, 2–3 раза в неделю.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:19px;font-weight:700;color:var(--ink)">[УТОЧНИТЬ]</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">только паром с Фогу</span>
-      </div>
-    </div>
-  </a>
-
-</div>
-
-<!-- ================= ВОЗМОЖНОСТИ ================= -->
-<div style="background:var(--panel);margin-top:80px;padding:74px 0;border-block:1px solid var(--line)">
-  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:38px;align-items:end">
-    <div style="display:flex;flex-direction:column;gap:18px">
-      <p class="tag">Инвестиции</p>
-      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Наши инвестиционные<br>проекты</h2>
-    </div>
-    <p style="color:var(--dim);font-size:16px;line-height:1.6">
-      Мы живём на островах и видим, что происходит на земле раньше, чем это доходит
-      до отчётов. Ниже — не витрина готовых проектов, а два направления, где движение
-      уже началось, и оно подтверждается не слухами, а деньгами и государственными целями.
-    </p>
-  </div>
-
-  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:24px">
-    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
-        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">GROUND IMPROVER® · ОФИЦИАЛЬНЫЙ ПАРТНЁР</p>
-        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">Возвращаем<br>засолённую землю</h3>
-        <p style="color:var(--dim);font-size:15px;line-height:1.55">
-          Страна ввозит <b style="color:var(--ink)">90 % продовольствия</b>, своё сельское хозяйство
-          закрывает от силы треть. Орошается всего <b style="color:var(--ink)">1 500–2 000 гектаров</b>
-          на всю страну, и почти всё это — Сантьягу и Санту-Антан. Земля под ними засолена:
-          в Санта-Крузе фермеры сообщают о десяти засолённых колодцах, в Тарафале
-          электропроводность скважин растёт год от года.
-        </p>
-      </div>
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Каждые две секунды мир теряет от засоления пашню размером с футбольное поле.
-          Мы работаем с обратной задачей — возвращаем такую землю в жизнь.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Мы — официальный партнёр <b style="color:var(--ink)">Ground Improver®</b> в Капо Верде,
-          сертифицированного в ЕС кондиционера почвы. Он не подкармливает растение, а
-          восстанавливает саму землю: связывает соли и выводит их из корневой зоны, возвращает
-          структуру и способность держать воду. Food-grade, полностью биоразлагаемый — распадается
-          на углерод, водород, кислород и азот. Одно внесение работает три-четыре года.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Результат измеряется в поле. В Азербайджане независимая лаборатория зафиксировала
-          снижение общего засоления на <b style="color:var(--ink)">72–94 % за 52–70 дней</b> —
-          участки вернулись в категорию незасолённых. В Аргентине натрий упал
-          <b style="color:var(--ink)">на 90 % за семь недель</b>. На испытаниях INIA в Чили
-          урожай люцерны вырос <b style="color:var(--ink)">более чем вдвое</b>.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          В Капо Верде ту же задачу изучает государственный институт INIDA — на опреснительной
-          станции на Сантьягу.
-        </p>
-      </div>
-    </article>
-
-    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
-        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">ПОРТЫ</p>
-        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">€148 млн<br>из Европы</h3>
-        <p style="color:var(--dim);font-size:15px;line-height:1.55">
-          Евросоюз и Европейский инвестбанк вложили в порты архипелага
-          <b style="color:var(--ink)">148 миллионов евро</b>: 114 млн кредитов ЕИБ в 2024 году
-          и 34 млн безвозвратного гранта в январе 2026-го. Перестраивают Порту-Гранди
-          в Минделу, Порту-Ново на Санту-Антане, Порту-да-Палмейра на Сале
-          и единственную в Средней Атлантике верфь CABNAVE.
-        </p>
-      </div>
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Строить порт не нужно — его уже строят, и не на частные деньги.
-          Интересно то, что вокруг: снабжение, склады и холодная цепь, обслуживание
-          судов и экипажей, последняя миля. Спрос растёт по расписанию, которое
-          известно заранее, а источник финансирования не зависит от местного бюджета.
-        </p>
-        <p class="mono" style="font-size:.68rem;color:var(--faint)">
-          Сан-Висенти · Санту-Антан · Сал
-        </p>
-      </div>
-    </article>
-  </div>
-
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding:56px 0 20px">
-    <p class="tag tag--dim">По каждому острову</p>
-    <p class="mono" style="font-size:.66rem;color:var(--faint)">кому подходит</p>
+    <p class="tag">Проекты</p>
+    <p class="mono" style="font-size:.66rem;color:var(--faint)">по каждому острову · кому подходит</p>
   </div>
 
   <a class="band" href="santo-antao.html#invest">
@@ -796,6 +540,61 @@
       </div>
     </div>
   </a>
+</div>
+
+<!-- ================= ВОЗМОЖНОСТИ ================= -->
+<div style="background:var(--panel);margin-top:80px;padding:74px 0;border-block:1px solid var(--line)">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:38px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="tag">Инвестиции</p>
+      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Наши инвестиционные<br>проекты</h2>
+    </div>
+    <p style="color:var(--dim);font-size:16px;line-height:1.6">
+      Мы живём на островах и видим, что происходит на земле раньше, чем это доходит
+      до отчётов. Ниже — направление, где движение уже началось, и оно подтверждается
+      не слухами, а результатами в поле.
+    </p>
+  </div>
+
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:24px">
+    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
+        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">GROUND IMPROVER® · ОФИЦИАЛЬНЫЙ ПАРТНЁР</p>
+        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">Возвращаем<br>засолённую землю</h3>
+        <p style="color:var(--dim);font-size:15px;line-height:1.55">
+          Страна ввозит <b style="color:var(--ink)">90 % продовольствия</b>, своё сельское хозяйство
+          закрывает от силы треть. Орошается всего <b style="color:var(--ink)">1 500–2 000 гектаров</b>
+          на всю страну, и почти всё это — Сантьягу и Санту-Антан. Земля под ними засолена:
+          в Санта-Крузе фермеры сообщают о десяти засолённых колодцах, в Тарафале
+          электропроводность скважин растёт год от года.
+        </p>
+      </div>
+      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Каждые две секунды мир теряет от засоления пашню размером с футбольное поле.
+          Мы работаем с обратной задачей — возвращаем такую землю в жизнь.
+        </p>
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Мы — официальный партнёр <b style="color:var(--ink)">Ground Improver®</b> в Капо Верде,
+          сертифицированного в ЕС кондиционера почвы. Он не подкармливает растение, а
+          восстанавливает саму землю: связывает соли и выводит их из корневой зоны, возвращает
+          структуру и способность держать воду. Food-grade, полностью биоразлагаемый — распадается
+          на углерод, водород, кислород и азот. Одно внесение работает три-четыре года.
+        </p>
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          Результат измеряется в поле. В Азербайджане независимая лаборатория зафиксировала
+          снижение общего засоления на <b style="color:var(--ink)">72–94 % за 52–70 дней</b> —
+          участки вернулись в категорию незасолённых. В Аргентине натрий упал
+          <b style="color:var(--ink)">на 90 % за семь недель</b>. На испытаниях INIA в Чили
+          урожай люцерны вырос <b style="color:var(--ink)">более чем вдвое</b>.
+        </p>
+        <p style="color:var(--dim);font-size:15px;line-height:1.6">
+          В Капо Верде ту же задачу изучает государственный институт INIDA — на опреснительной
+          станции на Сантьягу.
+        </p>
+      </div>
+    </article>
+  </div>
 </div>
 
 <!-- ================= FAQ ================= -->
