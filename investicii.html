@@ -36,6 +36,17 @@
   .fact dt{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0}
   .fact dd{margin:22px 0 0 0;font-size:16px;color:var(--dim);line-height:1.62}
   .fact dd b{color:var(--ink);font-weight:600}
+  .proj-row{display:grid;grid-template-columns:140px 1fr 200px;gap:24px;align-items:center;
+    padding:20px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit;
+    transition:background .2s ease}
+  .proj-row:hover{background:var(--panel)}
+  .proj-row:hover .proj-row__go{color:#F5CE7A}
+  .proj-row__isl{color:var(--gold);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+  .proj-row__b{display:flex;flex-direction:column;gap:4px}
+  .proj-row__b b{font-weight:600;font-size:15.5px;color:var(--ink)}
+  .proj-row__b span{font-size:14px;color:var(--dim);line-height:1.5}
+  .proj-row__go{font-size:.66rem;letter-spacing:.06em;color:var(--gold);text-align:right}
+  @media (max-width:760px){.proj-row{grid-template-columns:1fr}}
   @media (max-width:760px){.wrap{width:min(100% - 2.2rem,920px)}
     [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}}
 </style>
@@ -69,6 +80,53 @@
       <b style="color:var(--ink)">72–94% за 52–70 дней</b>. Официальный партнёр в Капо
       Верде — прямой выход на продукт, а не посредничество.
     </p>
+  </div>
+</div>
+
+<!-- ТАБЛИЦА ПРОЕКТОВ ПО ОСТРОВАМ -->
+<div class="wrap" style="padding:56px 0 0">
+  <p class="tag" style="padding-bottom:16px">По каждому острову · кому подходит</p>
+  <div style="display:flex;flex-direction:column">
+    <a href="santo-antao.html#invest" class="proj-row">
+      <span class="proj-row__isl mono">Санту-Антан</span>
+      <span class="proj-row__b">
+        <b>Террасы, которые снова дадут урожай</b>
+        <span>Половина сельхозтеррас острова заброшена, а вода в долинах дороже самой земли.</span>
+      </span>
+      <span class="proj-row__go mono">фермеры террас →</span>
+    </a>
+    <a href="santiago.html#invest" class="proj-row">
+      <span class="proj-row__isl mono">Сантьягу</span>
+      <span class="proj-row__b">
+        <b>Земля вокруг столицы</b>
+        <span>52% всей пашни страны и самый близкий покупатель урожая — 269 тысяч человек в получасе езды.</span>
+      </span>
+      <span class="proj-row__go mono">фермерские ассоциации →</span>
+    </a>
+    <a href="sal.html#invest" class="proj-row">
+      <span class="proj-row__isl mono">Сал</span>
+      <span class="proj-row__b">
+        <b>Зелень там, где её не ждут</b>
+        <span>Остров живёт на опреснённой воде — газоны, аллеи и поля для гольфа гибнут по той же причине, что и урожай.</span>
+      </span>
+      <span class="proj-row__go mono">отели и УК →</span>
+    </a>
+    <a href="boa-vista.html#invest" class="proj-row">
+      <span class="proj-row__isl mono">Боа-Вишта</span>
+      <span class="proj-row__b">
+        <b>Курорты растут — газоны не поспевают</b>
+        <span>Каждый новый отель озеленяют на той же опреснённой воде, что убивает посадки за два-три сезона.</span>
+      </span>
+      <span class="proj-row__go mono">застройщики курортов →</span>
+    </a>
+    <a href="fogo.html#invest" class="proj-row" style="border-bottom:1px solid var(--line)">
+      <span class="proj-row__isl mono">Фогу</span>
+      <span class="proj-row__b">
+        <b>Вино и кофе на вулкане</b>
+        <span>Единственный винодельческий район страны — продукт, который нельзя повторить ни на одном другом острове.</span>
+      </span>
+      <span class="proj-row__go mono">винодельни, кофейни →</span>
+    </a>
   </div>
 </div>
 
