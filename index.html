@@ -30,13 +30,6 @@
     transform-origin:58% 62%;animation:heroPan 30s ease-in-out infinite alternate}
   @keyframes heroPan{from{transform:scale(1)}to{transform:scale(1.1)}}
   @media(prefers-reduced-motion:reduce){.hero__ph{animation:none}}
-  /* Две вуали: вертикальная гасит только низ (переход в чёрную страницу),
-     горизонтальная затемняет левый край под текст. Середина и верх остаются
-     светлыми — иначе пляж выглядит ночным, а заголовок висит на чёрном. */
-  .hero__veil{position:absolute;inset:0;background:
-    linear-gradient(90deg,rgba(11,11,12,.7) 0%,rgba(11,11,12,.15) 50%,rgba(11,11,12,0) 75%),
-    linear-gradient(to top,rgba(11,11,12,.92) 0%,rgba(11,11,12,.55) 18%,
-      rgba(11,11,12,.12) 50%,rgba(11,11,12,0) 100%)}
   .hero__body{position:relative;padding:70px 0 54px;display:flex;flex-direction:column;gap:28px}
   .hero__body h1{text-shadow:0 2px 28px rgba(5,10,17,.9),0 1px 6px rgba(5,10,17,.7)}
   .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
@@ -190,13 +183,12 @@
 <!-- ================= ГЕРОЙ ================= -->
 <div class="hero">
   <img class="hero__ph" src="img/HERO_BEACH.jpg" alt="Пляж Боа-Вишты: белый песок и бирюзовая вода">
-  <div class="hero__veil"></div>
   <div class="wrap hero__body">
     <h1 class="huge" style="font-size:clamp(58px,9.4vw,128px)">
       Десять<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
     </h1>
     <p style="font-size:19px;line-height:1.5;color:var(--ink);max-width:52ch;
-      text-shadow:0 1px 14px rgba(5,10,17,.9)">
+      text-shadow:0 2px 20px rgba(5,10,17,.95),0 1px 5px rgba(5,10,17,.8)">
       Добро пожаловать в Капо Верде — островную демократию в Атлантическом
       океане, когда-то бывшую частью Португалии. Это десять вулканических
       островов в 570&nbsp;км от Африки, независимых с 1975 года.
