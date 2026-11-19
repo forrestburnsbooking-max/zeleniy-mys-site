@@ -52,6 +52,9 @@
       rgba(15,34,51,.32) 55%,rgba(15,34,51,.1) 100%)}
   .hero__body{position:relative;padding:70px 0 54px;display:flex;flex-direction:column;gap:28px}
   .hero__body h1{text-shadow:0 2px 28px rgba(5,13,20,.9),0 1px 6px rgba(5,13,20,.7)}
+  .hero__price{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .hero__price span{font-size:14px;line-height:1.45;color:var(--ink);opacity:.88;max-width:42ch;
+    text-shadow:0 1px 10px rgba(5,13,20,.95)}
   .band{border-top:1px solid var(--line);position:relative;overflow:hidden}
   .band__grid{display:grid;grid-template-columns:1.05fr 1fr 210px;gap:30px;
     padding:30px 0;align-items:center;position:relative}
@@ -214,22 +217,38 @@
   <img class="hero__ph" src="img/HERO_BEACH.jpg" alt="Пляж Боа-Вишты: белый песок и бирюзовая вода">
   <div class="hero__veil"></div>
   <div class="wrap hero__body">
-    <h1 class="huge" style="font-size:clamp(58px,9.4vw,128px)">
-      Десять<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
+    <p class="tag" style="text-shadow:0 1px 10px rgba(5,13,20,.95)">Капо Верде · счёт и карта</p>
+    <h1 class="huge" style="font-size:clamp(42px,6.4vw,92px)">
+      Счёт в Капо Верде —<br><span style="color:var(--gold)">без приезда.</span>
     </h1>
     <p style="font-size:19px;line-height:1.5;color:var(--ink);max-width:58ch;
       text-shadow:0 1px 14px rgba(5,13,20,.9)">
-      Добро пожаловать в Капо Верде — островную страну в Атлантическом
-      океане, когда-то бывшую частью Португалии. Десять вулканических
-      островов в 570&nbsp;км от Африки, на широте Канарских островов.
+      Открываем счёт в BAI или Ecobank по доверенности и выпускаем карту Visa.
+      Карта и доступы приходят вам лично, распоряжаетесь деньгами только вы.
     </p>
+    <div class="hero__price">
+      <b class="huge" style="font-size:clamp(36px,4.4vw,54px);color:var(--gold)">€450</b>
+      <span>под ключ · заверение доверенности у&nbsp;нотариуса в&nbsp;вашей стране — отдельно</span>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn" href="finansy.html">Открыть счёт</a>
+      <a class="btn btn--ghost" href="#uslugi">Все услуги</a>
+    </div>
   </div>
 </div>
 
 <!-- ================= КАРТА АРХИПЕЛАГА ================= -->
 <div id="map" style="padding:74px 0 0">
-  <div class="wrap" style="padding-bottom:30px">
+  <div class="wrap" style="padding-bottom:34px;display:flex;flex-direction:column;gap:24px">
     <p class="tag">Архипелаг · Капо Верде</p>
+    <h2 class="huge" style="font-size:clamp(44px,6.6vw,92px)">
+      Десять<br>островов.<br><span style="color:var(--gold)">Один ваш.</span>
+    </h2>
+    <p style="font-size:19px;line-height:1.5;color:var(--ink);max-width:58ch">
+      Добро пожаловать в Капо Верде — островную страну в Атлантическом
+      океане, когда-то бывшую частью Португалии. Десять вулканических
+      островов в 570&nbsp;км от Африки, на широте Канарских островов.
+    </p>
   </div>
 
   <div class="wrap">
