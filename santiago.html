@@ -129,6 +129,8 @@
   .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
   .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
     font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  .ex-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:860px){.ex-cols{grid-template-columns:1fr}}
   @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:600px){.ex{grid-template-columns:1fr}}
   /* EX-CSS END */
