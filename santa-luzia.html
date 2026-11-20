@@ -100,6 +100,38 @@
     .wrap{width:min(100% - 2.2rem,1140px)}
     [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
   }
+  /* EX-CSS START */
+  .ex{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)}
+  .ex > article{background:var(--black);padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .ex__kind{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex h4{margin:0;font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+  .ex p{color:var(--dim);font-size:14px;line-height:1.5}
+  .ex__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px}
+  .ex__f span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--faint)}
+  .ex__f b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:18px;color:var(--ink);font-weight:700;white-space:nowrap}
+  .ex-isl{display:flex;flex-direction:column;background:var(--black);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:border-color .2s ease;min-width:0}
+  .ex-isl:hover{border-color:var(--gold);color:var(--ink)}
+  .ex-isl figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden}
+  .ex-isl img{width:100%;height:100%;object-fit:cover;display:block}
+  .ex-isl figcaption{position:absolute;inset:auto 0 0 0;padding:44px 20px 14px;
+    background:linear-gradient(rgba(15,34,51,0),rgba(15,34,51,.94));display:flex;flex-direction:column;gap:5px}
+  .ex-isl figcaption b{font-size:28px}
+  .ex-isl figcaption span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex-isl ul{list-style:none;margin:0;padding:4px 20px 0;display:flex;flex-direction:column}
+  .ex-isl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.35}
+  .ex-isl li i{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:3px}
+  .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
+  .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.ex{grid-template-columns:1fr}}
+  /* EX-CSS END */
 </style>
 </head>
 <body>
@@ -180,13 +212,9 @@
   </div>
 </div>
 
-<!-- ИНВЕСТПРОЕКТЫ -->
+
+<!-- РЕЗЕРВАТ -->
 <div class="wrap" id="invest" style="padding:70px 0 0">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;
-    padding-bottom:20px;flex-wrap:wrap;gap:12px">
-    <p class="tag">Наши инвестиционные проекты</p>
-    <p class="mono" style="font-size:.62rem;color:var(--faint)">на Санта-Лузия</p>
-  </div>
   <div class="salt">
     <div class="salt__h">
       <span class="salt__tier">Природный резерват · не инвестпроект</span>

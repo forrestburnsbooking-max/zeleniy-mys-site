@@ -183,6 +183,38 @@
   .ans{padding-bottom:22px;color:var(--dim);max-width:66ch;display:flex;flex-direction:column;gap:12px}
   .ans b{color:var(--ink);font-weight:600}
 
+  /* EX-CSS START */
+  .ex{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)}
+  .ex > article{background:var(--black);padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .ex__kind{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex h4{margin:0;font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+  .ex p{color:var(--dim);font-size:14px;line-height:1.5}
+  .ex__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px}
+  .ex__f span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--faint)}
+  .ex__f b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:18px;color:var(--ink);font-weight:700;white-space:nowrap}
+  .ex-isl{display:flex;flex-direction:column;background:var(--black);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:border-color .2s ease;min-width:0}
+  .ex-isl:hover{border-color:var(--gold);color:var(--ink)}
+  .ex-isl figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden}
+  .ex-isl img{width:100%;height:100%;object-fit:cover;display:block}
+  .ex-isl figcaption{position:absolute;inset:auto 0 0 0;padding:44px 20px 14px;
+    background:linear-gradient(rgba(15,34,51,0),rgba(15,34,51,.94));display:flex;flex-direction:column;gap:5px}
+  .ex-isl figcaption b{font-size:28px}
+  .ex-isl figcaption span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex-isl ul{list-style:none;margin:0;padding:4px 20px 0;display:flex;flex-direction:column}
+  .ex-isl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.35}
+  .ex-isl li i{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:3px}
+  .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
+  .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.ex{grid-template-columns:1fr}}
+  /* EX-CSS END */
   /* ===== МОБИЛЬНАЯ ВЁРСТКА =====
      Секции вёрстаны инлайн-стилями с фиксированными grid-колонками (в т.ч. с жёстким px,
      напр. .band__grid 210px) — без этого блока на узких экранах верстка вылезает
@@ -402,7 +434,7 @@
       <p style="color:var(--dim);font-size:15px;line-height:1.55">
         Подбор и проверка объекта, сопровождение сделки, оформление на месте.
         Покупка от порога даёт сразу ПМЖ — «зелёную карту» вместе с ключами, без обязательства жить в стране.
-        Отдельно ведём флагманский проект Ground Improver® по восстановлению земли.
+        Сейчас в фокусе — туристическая недвижимость на Сале, Боа-Висте и в Минделу.
       </p>
       <span class="svc-card__go mono">Подробнее <i>→</i></span>
     </a>
@@ -465,147 +497,55 @@
   </div>
 </div>
 
-<!-- ================= ВОЗМОЖНОСТИ ================= -->
-<div style="background:var(--panel);margin-top:80px;padding:74px 0;border-block:1px solid var(--line)">
+<!-- ================= ТУРИСТИЧЕСКАЯ НЕДВИЖИМОСТЬ ================= -->
+<div id="invest" style="background:var(--panel);margin-top:80px;padding:74px 0;border-block:1px solid var(--line)">
   <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:38px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:18px">
       <p class="tag">Инвестиции</p>
-      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Наши инвестиционные<br>проекты</h2>
+      <h2 class="huge" style="font-size:clamp(30px,4.2vw,50px)">Туристическая<br>недвижимость</h2>
     </div>
     <p style="color:var(--dim);font-size:16px;line-height:1.6">
-      Мы живём на островах и видим, что происходит на земле раньше, чем это доходит
-      до отчётов. Ниже — направление, где движение уже началось, и оно подтверждается
-      не слухами, а результатами в поле.
+      Сал, Боа-Вишта и Минделу на Сан-Висенти — острова с международными аэропортами,
+      где жильё сдают туристам. Ниже — примеры объектов, которые продаются сейчас.
+      Подбираем под вашу задачу, проверяем объект и ведём сделку.
     </p>
   </div>
-
-  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:24px">
-    <article style="border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:0">
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line)">
-        <p class="mono" style="font-size:.62rem;letter-spacing:.16em;color:var(--gold)">GROUND IMPROVER® · ОФИЦИАЛЬНЫЙ ПАРТНЁР</p>
-        <h3 class="huge" style="font-size:29px;letter-spacing:-.03em">Возвращаем<br>засолённую землю</h3>
-        <p style="color:var(--dim);font-size:15px;line-height:1.55">
-          Страна ввозит <b style="color:var(--ink)">90 % продовольствия</b>, своё сельское хозяйство
-          закрывает от силы треть. Орошается всего <b style="color:var(--ink)">1 500–2 000 гектаров</b>
-          на всю страну, и почти всё это — Сантьягу и Санту-Антан. Земля под ними засолена:
-          в Санта-Крузе фермеры сообщают о десяти засолённых колодцах, в Тарафале
-          электропроводность скважин растёт год от года.
-        </p>
-      </div>
-      <div style="padding:34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center">
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Каждые две секунды мир теряет от засоления пашню размером с футбольное поле.
-          Мы работаем с обратной задачей — возвращаем такую землю в жизнь.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Мы — официальный партнёр <b style="color:var(--ink)">Ground Improver®</b> в Капо Верде,
-          сертифицированного в ЕС кондиционера почвы. Он не подкармливает растение, а
-          восстанавливает саму землю: связывает соли и выводит их из корневой зоны, возвращает
-          структуру и способность держать воду. Food-grade, полностью биоразлагаемый — распадается
-          на углерод, водород, кислород и азот. Одно внесение работает три-четыре года.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          Результат измеряется в поле. В Азербайджане независимая лаборатория зафиксировала
-          снижение общего засоления на <b style="color:var(--ink)">72–94 % за 52–70 дней</b> —
-          участки вернулись в категорию незасолённых. В Аргентине натрий упал
-          <b style="color:var(--ink)">на 90 % за семь недель</b>. На испытаниях INIA в Чили
-          урожай люцерны вырос <b style="color:var(--ink)">более чем вдвое</b>.
-        </p>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6">
-          В Капо Верде ту же задачу изучает государственный институт INIDA — на опреснительной
-          станции на Сантьягу.
-        </p>
-      </div>
-    </article>
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <a class="ex-isl" href="sal.html#invest">
+      <figure><img src="img/G_sal_1.jpg" alt="Сал">
+        <figcaption><b class="huge">Сал</b><span>Санта-Мария · Vila Verde · Paradise Beach</span></figcaption></figure>
+      <ul>
+        <li><span>Студия в отеле<i>Meliá Dunas, Санта-Мария</i></span><b>€30 000</b></li>
+        <li><span>Квартира, 2 спальни<i>Meliá Tortuga</i></span><b>€115 000</b></li>
+        <li><span>Вилла, 3 спальни<i>Paradise Beach</i></span><b>€320 000</b></li>
+      </ul>
+      <span class="ex-isl__go">Ещё примеры на острове →</span>
+    </a>
+    <a class="ex-isl" href="boa-vista.html#invest">
+      <figure><img src="img/G_boavista_5.jpg" alt="Боа-Вишта">
+        <figcaption><b class="huge">Боа-Вишта</b><span>Сал-Рей · пляжи Эшторил и Кабрал</span></figcaption></figure>
+      <ul>
+        <li><span>Квартира в новостройке<i>Torre delle Stelle, центр Сал-Рея</i></span><b>от €44 000</b></li>
+        <li><span>Квартира, 2 спальни<i>Rosa dei Venti, Сал-Рей</i></span><b>€106 610</b></li>
+        <li><span>Вилла, 2 спальни<i>Por do Sol, пляж Кабрал</i></span><b>€179 000</b></li>
+      </ul>
+      <span class="ex-isl__go">Ещё примеры на острове →</span>
+    </a>
+    <a class="ex-isl" href="sao-vicente.html#invest">
+      <figure><img src="img/G_saovicente_2.jpg" alt="Минделу">
+        <figcaption><b class="huge">Минделу</b><span>Сан-Висенти · Лазарету · Байя-даш-Гаташ</span></figcaption></figure>
+      <ul>
+        <li><span>Дуплекс, 3 спальни<i>Норти-ди-Байя</i></span><b>€99 760</b></li>
+        <li><span>Дом с 9 квартирами<i>Лазарету, первая линия</i></span><b>≈ €200 000</b></li>
+        <li><span>Колониальный дом, 3 спальни<i>Центр Минделу</i></span><b>€269 351</b></li>
+      </ul>
+      <span class="ex-isl__go">Ещё примеры на острове →</span>
+    </a>
   </div>
-</div>
-
-<!-- ================= ПРОЕКТЫ ================= -->
-<div style="padding:74px 0 0">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:26px">
-    <p class="tag">Проекты</p>
-    <p class="mono" style="font-size:.66rem;color:var(--faint)">по каждому острову · кому подходит</p>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:26px">
+    <p class="mono" style="font-size:.66rem;color:var(--faint);max-width:70ch;line-height:1.7">Примеры объектов в продаже на ноябрь 2026 года, цены продавцов. Наличие и цену сверяем перед показом, подбираем под вашу задачу.</p>
+    <a class="btn btn--ghost" href="investicii.html">Все примеры</a>
   </div>
-
-  <a class="band" href="santo-antao.html#invest">
-    <img class="band__ph" src="img/ISL_SANTOANTAO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:22px;line-height:1.18;letter-spacing:-.02em">Террасы, которые снова дадут урожай</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">САНТУ-АНТАН</p>
-      </div>
-      <p style="color:var(--ink);font-size:15px">Половина сельхозтеррас острова заброшена, а вода в долинах дороже самой земли.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:16px;font-weight:700;color:var(--ink)">фермеры террас</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">и кооперативы</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="santiago.html#invest">
-    <img class="band__ph" src="img/ISL_SANTIAGO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:22px;line-height:1.18;letter-spacing:-.02em">Земля вокруг столицы</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">САНТЬЯГУ</p>
-      </div>
-      <p style="color:var(--ink);font-size:15px">52 % всей пашни страны и самый близкий покупатель урожая — 269 тысяч человек в получасе езды.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:16px;font-weight:700;color:var(--ink)">фермерские ассоциации</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">рядом INIDA</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="sal.html#invest">
-    <img class="band__ph" src="img/ISL_SAL.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:22px;line-height:1.18;letter-spacing:-.02em">Зелень там, где её не ждут</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">САЛ</p>
-      </div>
-      <p style="color:var(--ink);font-size:15px">Остров живёт на опреснённой воде — газоны, аллеи и поля для гольфа гибнут по той же причине, что и урожай.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:16px;font-weight:700;color:var(--ink)">отели и УК</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">плотный турпоток</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="boa-vista.html#invest">
-    <img class="band__ph" src="img/HERO_BEACH.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:22px;line-height:1.18;letter-spacing:-.02em">Курорты растут — газоны не поспевают</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">БОА-ВИШТА</p>
-      </div>
-      <p style="color:var(--ink);font-size:15px">Каждый новый отель озеленяют на той же опреснённой воде, что убивает посадки за два-три сезона.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:16px;font-weight:700;color:var(--ink)">застройщики курортов</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">быстрый рост застройки</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="band" href="fogo.html#invest" style="border-bottom:1px solid var(--line)">
-    <img class="band__ph" src="img/ISL_FOGO.jpg" alt="">
-    <div class="band__veil"></div>
-    <div class="wrap band__grid">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h3 class="huge" style="font-size:22px;line-height:1.18;letter-spacing:-.02em">Вино и кофе на вулкане</h3>
-        <p class="mono" style="font-size:.66rem;color:var(--gold);letter-spacing:.1em">ФОГУ</p>
-      </div>
-      <p style="color:var(--ink);font-size:15px">Единственный винодельческий район страны — продукт, который нельзя повторить ни на одном другом острове.</p>
-      <div style="display:flex;flex-direction:column;gap:3px;text-align:right">
-        <b class="mono" style="font-size:16px;font-weight:700;color:var(--ink)">винодельни, кофейни</b>
-        <span class="mono" style="font-size:.64rem;color:var(--faint)">вулканическая почва</span>
-      </div>
-    </div>
-  </a>
 </div>
 
 <!-- ================= FAQ ================= -->

@@ -49,6 +49,38 @@
   @media (max-width:760px){.proj-row{grid-template-columns:1fr}}
   @media (max-width:760px){.wrap{width:min(100% - 2.2rem,920px)}
     [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}}
+  /* EX-CSS START */
+  .ex{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)}
+  .ex > article{background:var(--black);padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .ex__kind{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex h4{margin:0;font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+  .ex p{color:var(--dim);font-size:14px;line-height:1.5}
+  .ex__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px}
+  .ex__f span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--faint)}
+  .ex__f b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:18px;color:var(--ink);font-weight:700;white-space:nowrap}
+  .ex-isl{display:flex;flex-direction:column;background:var(--black);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:border-color .2s ease;min-width:0}
+  .ex-isl:hover{border-color:var(--gold);color:var(--ink)}
+  .ex-isl figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden}
+  .ex-isl img{width:100%;height:100%;object-fit:cover;display:block}
+  .ex-isl figcaption{position:absolute;inset:auto 0 0 0;padding:44px 20px 14px;
+    background:linear-gradient(rgba(15,34,51,0),rgba(15,34,51,.94));display:flex;flex-direction:column;gap:5px}
+  .ex-isl figcaption b{font-size:28px}
+  .ex-isl figcaption span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex-isl ul{list-style:none;margin:0;padding:4px 20px 0;display:flex;flex-direction:column}
+  .ex-isl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.35}
+  .ex-isl li i{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:3px}
+  .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
+  .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.ex{grid-template-columns:1fr}}
+  /* EX-CSS END */
 </style>
 </head>
 <body>
@@ -68,66 +100,62 @@
   </p>
 </div>
 
-<!-- ФЛАГМАН GROUND IMPROVER -->
+<!-- ТУРИСТИЧЕСКАЯ НЕДВИЖИМОСТЬ -->
 <div style="background:var(--panel);padding:44px 0;border-block:1px solid var(--line)">
   <div class="wrap" style="display:flex;flex-direction:column;gap:14px">
-    <p class="tag" style="letter-spacing:.14em">Ground Improver® · официальный партнёр · флагманский проект</p>
-    <h2 class="huge" style="font-size:clamp(28px,3.8vw,46px)">Возвращаем<br>засолённую землю</h2>
+    <p class="tag" style="letter-spacing:.14em">Сейчас в фокусе</p>
+    <h2 class="huge" style="font-size:clamp(28px,3.8vw,46px)">Туристическая<br>недвижимость</h2>
     <p style="color:var(--dim);font-size:16px;line-height:1.6;max-width:70ch;margin-top:8px">
-      Страна ввозит <b style="color:var(--ink)">90% продовольствия</b>. Орошается всего
-      <b style="color:var(--ink)">1 500–2 000 га</b> на всю страну — Сантьягу и Санту-Антан.
-      В Азербайджане независимая лаборатория зафиксировала снижение засоления на
-      <b style="color:var(--ink)">72–94% за 52–70 дней</b>. Официальный партнёр в Капо
-      Верде — прямой выход на продукт, а не посредничество.
+      Сал, Боа-Вишта и Минделу на Сан-Висенти — острова с международными аэропортами,
+      где жильё сдают туристам. От студии в отеле, которую сдаёт сам отель, до дома под гестхаус.
     </p>
   </div>
 </div>
 
-<!-- ТАБЛИЦА ПРОЕКТОВ ПО ОСТРОВАМ -->
-<div class="wrap" style="padding:56px 0 0">
-  <p class="tag" style="padding-bottom:16px">По каждому острову · кому подходит</p>
-  <div style="display:flex;flex-direction:column">
-    <a href="santo-antao.html#invest" class="proj-row">
-      <span class="proj-row__isl mono">Санту-Антан</span>
-      <span class="proj-row__b">
-        <b>Террасы, которые снова дадут урожай</b>
-        <span>Половина сельхозтеррас острова заброшена, а вода в долинах дороже самой земли.</span>
-      </span>
-      <span class="proj-row__go mono">фермеры террас →</span>
-    </a>
-    <a href="santiago.html#invest" class="proj-row">
-      <span class="proj-row__isl mono">Сантьягу</span>
-      <span class="proj-row__b">
-        <b>Земля вокруг столицы</b>
-        <span>52% всей пашни страны и самый близкий покупатель урожая — 269 тысяч человек в получасе езды.</span>
-      </span>
-      <span class="proj-row__go mono">фермерские ассоциации →</span>
-    </a>
-    <a href="sal.html#invest" class="proj-row">
-      <span class="proj-row__isl mono">Сал</span>
-      <span class="proj-row__b">
-        <b>Зелень там, где её не ждут</b>
-        <span>Остров живёт на опреснённой воде — газоны, аллеи и поля для гольфа гибнут по той же причине, что и урожай.</span>
-      </span>
-      <span class="proj-row__go mono">отели и УК →</span>
-    </a>
-    <a href="boa-vista.html#invest" class="proj-row">
-      <span class="proj-row__isl mono">Боа-Вишта</span>
-      <span class="proj-row__b">
-        <b>Курорты растут — газоны не поспевают</b>
-        <span>Каждый новый отель озеленяют на той же опреснённой воде, что убивает посадки за два-три сезона.</span>
-      </span>
-      <span class="proj-row__go mono">застройщики курортов →</span>
-    </a>
-    <a href="fogo.html#invest" class="proj-row" style="border-bottom:1px solid var(--line)">
-      <span class="proj-row__isl mono">Фогу</span>
-      <span class="proj-row__b">
-        <b>Вино и кофе на вулкане</b>
-        <span>Единственный винодельческий район страны — продукт, который нельзя повторить ни на одном другом острове.</span>
-      </span>
-      <span class="proj-row__go mono">винодельни, кофейни →</span>
-    </a>
+<div class="wrap" style="padding:56px 0 0;display:flex;flex-direction:column;gap:48px">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
+      <h3 class="huge" style="font-size:clamp(24px,3vw,32px)">Сал</h3>
+      <a class="mono" href="sal.html" style="font-size:.66rem;letter-spacing:.1em;text-transform:uppercase">Санта-Мария · Vila Verde · Paradise Beach →</a>
+    </div>
+  <div class="ex">
+    <article><span class="ex__kind">Meliá Dunas, Санта-Мария</span><h4>Студия в отеле</h4><p>В программе аренды отеля, с мебелью</p><div class="ex__f"><span></span><b>€30 000</b></div></article>
+    <article><span class="ex__kind">Vila Verde Resort</span><h4>Студия в курортном комплексе</h4><p>Курортный комплекс 4*</p><div class="ex__f"><span>45,5 м²</span><b>€85 000</b></div></article>
+    <article><span class="ex__kind">Marco Polo, пляж Антониу-Соза</span><h4>Студия в новом доме</h4><p>Новый жилой комплекс у пляжа</p><div class="ex__f"><span></span><b>€98 500</b></div></article>
+    <article><span class="ex__kind">Meliá Tortuga</span><h4>Квартира, 2 спальни</h4><p>У бассейна, на территории курорта</p><div class="ex__f"><span>88 м²</span><b>€115 000</b></div></article>
+    <article><span class="ex__kind">Paradise Beach</span><h4>Вилла, 3 спальни</h4><p>Первая линия</p><div class="ex__f"><span></span><b>€320 000</b></div></article>
+    <article><span class="ex__kind">Центр Санта-Марии</span><h4>Бутик-отель на 10 сьютов</h4><p>Скай-бар и бассейн на крыше</p><div class="ex__f"><span></span><b>€2 150 000</b></div></article>
   </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
+      <h3 class="huge" style="font-size:clamp(24px,3vw,32px)">Боа-Вишта</h3>
+      <a class="mono" href="boa-vista.html" style="font-size:.66rem;letter-spacing:.1em;text-transform:uppercase">Сал-Рей · пляжи Эшторил и Кабрал →</a>
+    </div>
+  <div class="ex">
+    <article><span class="ex__kind">Центр Сал-Рея</span><h4>Студия</h4><p>В жилом комплексе в центре города</p><div class="ex__f"><span></span><b>€38 000</b></div></article>
+    <article><span class="ex__kind">Torre delle Stelle, центр Сал-Рея</span><h4>Квартира в новостройке</h4><p>Студии, 1 и 2 спальни; сдача в июле 2027</p><div class="ex__f"><span>от 31 м²</span><b>от €44 000</b></div></article>
+    <article><span class="ex__kind">Por do Sol, пляж Кабрал</span><h4>Квартира, 1 спальня</h4><p>Комплекс у пляжа</p><div class="ex__f"><span>58 м²</span><b>€90 000</b></div></article>
+    <article><span class="ex__kind">Rosa dei Venti, Сал-Рей</span><h4>Квартира, 2 спальни</h4><p>С мебелью, уже сдаётся туристам</p><div class="ex__f"><span>76 м²</span><b>€106 610</b></div></article>
+    <article><span class="ex__kind">Por do Sol, пляж Кабрал</span><h4>Вилла, 2 спальни</h4><p>Комплекс у пляжа</p><div class="ex__f"><span>185 м²</span><b>€179 000</b></div></article>
+    <article><span class="ex__kind">Повоасан-Велья</span><h4>Исторический дом</h4><p>Дом в исторической деревне</p><div class="ex__f"><span></span><b>€195 000</b></div></article>
+  </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
+      <h3 class="huge" style="font-size:clamp(24px,3vw,32px)">Минделу</h3>
+      <a class="mono" href="sao-vicente.html" style="font-size:.66rem;letter-spacing:.1em;text-transform:uppercase">Сан-Висенти · Лазарету · Байя-даш-Гаташ →</a>
+    </div>
+  <div class="ex">
+    <article><span class="ex__kind">Ша-ди-Алекрин, Минделу</span><h4>Квартира, 2 спальни</h4><p>Городской район</p><div class="ex__f"><span></span><b>≈ €74 000</b></div></article>
+    <article><span class="ex__kind">Норти-ди-Байя</span><h4>Дуплекс, 3 спальни</h4><p>С видом на море</p><div class="ex__f"><span>70 м²</span><b>€99 760</b></div></article>
+    <article><span class="ex__kind">Лазарету, первая линия</span><h4>Дом с 9 квартирами</h4><p>9 отдельных квартир у моря</p><div class="ex__f"><span>443 м²</span><b>≈ €200 000</b></div></article>
+    <article><span class="ex__kind">Центр Минделу</span><h4>Колониальный дом, 3 спальни</h4><p>Исторический центр</p><div class="ex__f"><span>165 м²</span><b>€269 351</b></div></article>
+    <article><span class="ex__kind">Байя-даш-Гаташ</span><h4>Вилла, 4 спальни</h4><p>Посёлок у залива</p><div class="ex__f"><span>326 м²</span><b>€280 000</b></div></article>
+    <article><span class="ex__kind">Лазарету</span><h4>Дом на 10 комнат</h4><p>«Жёлтый дом»: 10 комнат, подходит под гестхаус</p><div class="ex__f"><span>447 м²</span><b>≈ €345 000</b></div></article>
+  </div>
+  </div>
+  <p class="mono" style="font-size:.66rem;color:var(--faint);line-height:1.7">Примеры объектов в продаже на ноябрь 2026 года, цены продавцов. Наличие и цену сверяем перед показом, подбираем под вашу задачу.</p>
 </div>
 
 <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:56px">

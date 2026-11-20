@@ -100,6 +100,38 @@
     .wrap{width:min(100% - 2.2rem,1140px)}
     [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
   }
+  /* EX-CSS START */
+  .ex{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)}
+  .ex > article{background:var(--black);padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .ex__kind{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex h4{margin:0;font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+  .ex p{color:var(--dim);font-size:14px;line-height:1.5}
+  .ex__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px}
+  .ex__f span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--faint)}
+  .ex__f b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:18px;color:var(--ink);font-weight:700;white-space:nowrap}
+  .ex-isl{display:flex;flex-direction:column;background:var(--black);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:border-color .2s ease;min-width:0}
+  .ex-isl:hover{border-color:var(--gold);color:var(--ink)}
+  .ex-isl figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden}
+  .ex-isl img{width:100%;height:100%;object-fit:cover;display:block}
+  .ex-isl figcaption{position:absolute;inset:auto 0 0 0;padding:44px 20px 14px;
+    background:linear-gradient(rgba(15,34,51,0),rgba(15,34,51,.94));display:flex;flex-direction:column;gap:5px}
+  .ex-isl figcaption b{font-size:28px}
+  .ex-isl figcaption span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex-isl ul{list-style:none;margin:0;padding:4px 20px 0;display:flex;flex-direction:column}
+  .ex-isl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.35}
+  .ex-isl li i{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:3px}
+  .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
+  .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.ex{grid-template-columns:1fr}}
+  /* EX-CSS END */
 </style>
 </head>
 <body>
@@ -180,43 +212,23 @@
   </div>
 </div>
 
-<!-- ИНВЕСТПРОЕКТЫ -->
+
+<!-- ТУРИСТИЧЕСКАЯ НЕДВИЖИМОСТЬ -->
 <div class="wrap" id="invest" style="padding:70px 0 0">
   <div style="display:flex;justify-content:space-between;align-items:baseline;
     padding-bottom:20px;flex-wrap:wrap;gap:12px">
-    <p class="tag">Наши инвестиционные проекты</p>
-    <p class="mono" style="font-size:.62rem;color:var(--faint)">на Сал</p>
+    <p class="tag">Туристическая недвижимость · примеры</p>
+    <p class="mono" style="font-size:.62rem;color:var(--faint)">Санта-Мария · Vila Verde · Paradise Beach</p>
   </div>
-  <div class="salt">
-    <div class="salt__h">
-      <span class="salt__tier">Ground Improver® · официальный партнёр в Капо Верде</span>
-      <span class="mono" style="font-size:.62rem;color:var(--faint)">CE · food-grade · биоразлагаемый</span>
-    </div>
-    <div class="salt__b">
-      <div style="display:flex;flex-direction:column;gap:13px">
-        <h3 class="huge" style="font-size:28px;letter-spacing:-.028em">Зелень там, где её не ждут</h3>
-        <p style="color:var(--ink);font-size:16px;line-height:1.5">Остров живёт на опреснённой воде, и каждая посадка на нём — борьба с солью.</p>
-        <p>Полей здесь нет, а газоны, аллеи и поля для гольфа есть, и они гибнут по той же причине, что и урожай на других островах. Наш клиент тут не фермер, а отель и управляющая компания: им нужна территория, которая выглядит дорого круглый год, а не выгорает за два сезона.</p>
-      </div>
-      <dl>
-          <div><dt>Кому</dt><dd>отелям и управляющим компаниям</dd></div>
-          <div><dt>Что даёт</dt><dd>территория, которая держится</dd></div>
-          <div><dt>Рынок</dt><dd>самый плотный турпоток страны</dd></div>
-          <div><dt>Вход</dt><dd>[УТОЧНИТЬ]</dd></div>
-          <div><dt>Технология</dt><dd>Ground Improver® (ЕС, CE-сертификат)</dd></div>
-      </dl>
-    </div>
+  <div class="ex">
+    <article><span class="ex__kind">Meliá Dunas, Санта-Мария</span><h4>Студия в отеле</h4><p>В программе аренды отеля, с мебелью</p><div class="ex__f"><span></span><b>€30 000</b></div></article>
+    <article><span class="ex__kind">Vila Verde Resort</span><h4>Студия в курортном комплексе</h4><p>Курортный комплекс 4*</p><div class="ex__f"><span>45,5 м²</span><b>€85 000</b></div></article>
+    <article><span class="ex__kind">Marco Polo, пляж Антониу-Соза</span><h4>Студия в новом доме</h4><p>Новый жилой комплекс у пляжа</p><div class="ex__f"><span></span><b>€98 500</b></div></article>
+    <article><span class="ex__kind">Meliá Tortuga</span><h4>Квартира, 2 спальни</h4><p>У бассейна, на территории курорта</p><div class="ex__f"><span>88 м²</span><b>€115 000</b></div></article>
+    <article><span class="ex__kind">Paradise Beach</span><h4>Вилла, 3 спальни</h4><p>Первая линия</p><div class="ex__f"><span></span><b>€320 000</b></div></article>
+    <article><span class="ex__kind">Центр Санта-Марии</span><h4>Бутик-отель на 10 сьютов</h4><p>Скай-бар и бассейн на крыше</p><div class="ex__f"><span></span><b>€2 150 000</b></div></article>
   </div>
-  <p style="color:var(--dim);font-size:14.5px;line-height:1.7;padding-top:14px">
-    <b style="color:var(--ink)">Ground Improver®</b> — сертифицированный в ЕС (CE) кондиционер почвы
-    на основе m-PAM: связывает соли и выводит их из корневой зоны, не нанося вреда экологии.
-    На реальных полях: <b style="color:var(--ink)">−72–94 % засоления за 52–70 дней</b> (Азербайджан,
-    независимая лаборатория, 2023–2024), <b style="color:var(--ink)">−90 % натрия за 49 дней</b>
-    (Аргентина, 2024), <b style="color:var(--ink)">+132 % сухой массы люцерны</b> (INIA, Чили, 2022).
-    Мы — официальный партнёр Ground Improver® в Капо Верде. Программа работает на всех девяти
-    обитаемых островах — меняется только то, чья это земля: на аграрных это поле фермера,
-    на курортных территория отеля.
-  </p>
+  <p class="mono" style="font-size:.62rem;color:var(--faint);padding-top:14px;line-height:1.7">Примеры объектов в продаже на ноябрь 2026 года, цены продавцов. Наличие и цену сверяем перед показом, подбираем под вашу задачу.</p>
 </div>
 
 

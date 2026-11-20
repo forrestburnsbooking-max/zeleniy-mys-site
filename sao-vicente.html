@@ -100,6 +100,38 @@
     .wrap{width:min(100% - 2.2rem,1140px)}
     [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
   }
+  /* EX-CSS START */
+  .ex{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line)}
+  .ex > article{background:var(--black);padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .ex__kind{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex h4{margin:0;font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+  .ex p{color:var(--dim);font-size:14px;line-height:1.5}
+  .ex__f{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:baseline;gap:12px}
+  .ex__f span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--faint)}
+  .ex__f b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:18px;color:var(--ink);font-weight:700;white-space:nowrap}
+  .ex-isl{display:flex;flex-direction:column;background:var(--black);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:border-color .2s ease;min-width:0}
+  .ex-isl:hover{border-color:var(--gold);color:var(--ink)}
+  .ex-isl figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden}
+  .ex-isl img{width:100%;height:100%;object-fit:cover;display:block}
+  .ex-isl figcaption{position:absolute;inset:auto 0 0 0;padding:44px 20px 14px;
+    background:linear-gradient(rgba(15,34,51,0),rgba(15,34,51,.94));display:flex;flex-direction:column;gap:5px}
+  .ex-isl figcaption b{font-size:28px}
+  .ex-isl figcaption span{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .ex-isl ul{list-style:none;margin:0;padding:4px 20px 0;display:flex;flex-direction:column}
+  .ex-isl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.35}
+  .ex-isl li i{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:3px}
+  .ex-isl li b{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;font-size:14.5px}
+  .ex-isl .ex-isl__go{padding:16px 20px 20px;margin-top:auto;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  @media (max-width:900px){.ex{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.ex{grid-template-columns:1fr}}
+  /* EX-CSS END */
 </style>
 </head>
 <body>
@@ -180,43 +212,23 @@
   </div>
 </div>
 
-<!-- ИНВЕСТПРОЕКТЫ -->
+
+<!-- ТУРИСТИЧЕСКАЯ НЕДВИЖИМОСТЬ -->
 <div class="wrap" id="invest" style="padding:70px 0 0">
   <div style="display:flex;justify-content:space-between;align-items:baseline;
     padding-bottom:20px;flex-wrap:wrap;gap:12px">
-    <p class="tag">Наши инвестиционные проекты</p>
-    <p class="mono" style="font-size:.62rem;color:var(--faint)">на Сан-Висенти</p>
+    <p class="tag">Туристическая недвижимость · примеры</p>
+    <p class="mono" style="font-size:.62rem;color:var(--faint)">Сан-Висенти · Лазарету · Байя-даш-Гаташ</p>
   </div>
-  <div class="salt">
-    <div class="salt__h">
-      <span class="salt__tier">Ground Improver® · официальный партнёр в Капо Верде</span>
-      <span class="mono" style="font-size:.62rem;color:var(--faint)">CE · food-grade · биоразлагаемый</span>
-    </div>
-    <div class="salt__b">
-      <div style="display:flex;flex-direction:column;gap:13px">
-        <h3 class="huge" style="font-size:28px;letter-spacing:-.028em">Город, порт и база рядом</h3>
-        <p style="color:var(--ink);font-size:16px;line-height:1.5">Один из самых сухих островов страны — и при этом самая удобная база для работы на соседнем Санту-Антане.</p>
-        <p>Своего поля здесь мало: точки приложения — городское озеленение Минделу, территория порта и частные участки. Объём небольшой. Зато остров даёт то, чего нет у аграрных: аэропорт, город, снабжение и час на пароме до Санту-Антана, где земли много.</p>
-      </div>
-      <dl>
-          <div><dt>Кому</dt><dd>муниципалитету, порту, частным владельцам</dd></div>
-          <div><dt>Роль острова</dt><dd>операционная база</dd></div>
-          <div><dt>Рядом</dt><dd>час до Санту-Антана</dd></div>
-          <div><dt>Вход</dt><dd>[УТОЧНИТЬ]</dd></div>
-          <div><dt>Технология</dt><dd>Ground Improver® (ЕС, CE-сертификат)</dd></div>
-      </dl>
-    </div>
+  <div class="ex">
+    <article><span class="ex__kind">Ша-ди-Алекрин, Минделу</span><h4>Квартира, 2 спальни</h4><p>Городской район</p><div class="ex__f"><span></span><b>≈ €74 000</b></div></article>
+    <article><span class="ex__kind">Норти-ди-Байя</span><h4>Дуплекс, 3 спальни</h4><p>С видом на море</p><div class="ex__f"><span>70 м²</span><b>€99 760</b></div></article>
+    <article><span class="ex__kind">Лазарету, первая линия</span><h4>Дом с 9 квартирами</h4><p>9 отдельных квартир у моря</p><div class="ex__f"><span>443 м²</span><b>≈ €200 000</b></div></article>
+    <article><span class="ex__kind">Центр Минделу</span><h4>Колониальный дом, 3 спальни</h4><p>Исторический центр</p><div class="ex__f"><span>165 м²</span><b>€269 351</b></div></article>
+    <article><span class="ex__kind">Байя-даш-Гаташ</span><h4>Вилла, 4 спальни</h4><p>Посёлок у залива</p><div class="ex__f"><span>326 м²</span><b>€280 000</b></div></article>
+    <article><span class="ex__kind">Лазарету</span><h4>Дом на 10 комнат</h4><p>«Жёлтый дом»: 10 комнат, подходит под гестхаус</p><div class="ex__f"><span>447 м²</span><b>≈ €345 000</b></div></article>
   </div>
-  <p style="color:var(--dim);font-size:14.5px;line-height:1.7;padding-top:14px">
-    <b style="color:var(--ink)">Ground Improver®</b> — сертифицированный в ЕС (CE) кондиционер почвы
-    на основе m-PAM: связывает соли и выводит их из корневой зоны, не нанося вреда экологии.
-    На реальных полях: <b style="color:var(--ink)">−72–94 % засоления за 52–70 дней</b> (Азербайджан,
-    независимая лаборатория, 2023–2024), <b style="color:var(--ink)">−90 % натрия за 49 дней</b>
-    (Аргентина, 2024), <b style="color:var(--ink)">+132 % сухой массы люцерны</b> (INIA, Чили, 2022).
-    Мы — официальный партнёр Ground Improver® в Капо Верде. Программа работает на всех девяти
-    обитаемых островах — меняется только то, чья это земля: на аграрных это поле фермера,
-    на курортных территория отеля.
-  </p>
+  <p class="mono" style="font-size:.62rem;color:var(--faint);padding-top:14px;line-height:1.7">Примеры объектов в продаже на ноябрь 2026 года, цены продавцов. Наличие и цену сверяем перед показом, подбираем под вашу задачу.</p>
 </div>
 
 
